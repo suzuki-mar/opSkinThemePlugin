@@ -7,8 +7,8 @@
 <th><?php echo __('有効/無効') ?></th>
 <th><?php echo __('プラグイン名') ?></th>
 <th><?php echo __('バージョン') ?></th>
-<th><?php echo __('プラグインの説明') ?></th>
-<th><?php echo __('操作') ?></th>
+<th><?php echo __('スキンの説明') ?></th>
+<th><?php echo __('プレビュー') ?></th>
 </tr>
 <?php echo $form['plugin']->render() ?>
 <tr>

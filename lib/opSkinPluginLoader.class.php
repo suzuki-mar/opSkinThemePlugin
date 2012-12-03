@@ -12,19 +12,17 @@ error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 class opSkinPluginLoader extends opInstalledPluginManager
 {
 
-  public function createSkinPluginInstance()
-  {
-    
-  }
-
   public static function enableSkin(sfEvent $event)
   {
     $skinThema = self::findUseSkinTehama();
     self::includeCSSOrJs($skinThema, 'css');
     self::includeCSSOrJs($skinThema, 'js');
+
+    $response = sfContext::getInstance()->getResponse();
   }
 
   /**
+   * プラグインのため、プラグインクラスに定義してるがモデルに移動できるのであれば移動した方がいい
    *
    * @todo プラグインがひとつも有効になっていない場合にエラーになる
    */
@@ -82,17 +80,11 @@ class opSkinPluginLoader extends opInstalledPluginManager
         $response->addJavaScript($file, 'last');
       }
     }
-
-  }
-
-  private static function includeJavaScripts($skinThema)
-  {
-
   }
 
   public static function loadPluginInsance()
   {
-    $pattern = __DIR__.'/../thema/*';
+    $pattern = __DIR__ . '/../thema/*';
 
     $availableSkinNames = array();
     foreach (glob($pattern, GLOB_ONLYDIR) as $dirName)
