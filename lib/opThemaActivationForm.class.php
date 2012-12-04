@@ -103,23 +103,13 @@ class opThemaActivationForm extends sfForm
       return false;
     }
 
-    $plugins = $this->getOption('plugins');
-    $values = $this->values[$this->pluginFieldKey];
-    foreach ($plugins as $plugin)
-    {
-      if ($values === $plugin->getName())
-      {
-        $plugin->setIsActive(true);
-      }
-      else
-      {
-        $plugin->setIsActive(false);
-      }
-    }
+    //@todo pluginFieldKeyをthemaKeyみたいな感じに変更する
+    $value = $this->values[$this->pluginFieldKey];
 
-    opToolkit::clearCache();
+    $skinThemaInfo = new opSkinThemaInfo();
+    
 
-    return true;
+    return $skinThemaInfo->save($value);
   }
 
 }

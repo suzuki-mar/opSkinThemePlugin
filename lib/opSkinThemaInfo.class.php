@@ -1,9 +1,6 @@
 <?php
 
-/**
- * プラグインのため、プラグインディレクトリに定義してるが本体に取り込まれたらモデルに移動できるのであれば移動した方がいい
- */
-class opSkinThemaPlugin
+class opSkinThemaInfo
 {
 
   /**
@@ -27,6 +24,39 @@ class opSkinThemaPlugin
     }
 
     return $skinThema;
+  }
+
+  public function isThemaSelected()
+  {
+    return ($this->_findThemaUsedInstance() !== null);
+  }
+
+  public function isThemaUnSelected()
+  {
+    return!($this->isThemaSelected());
+  }
+
+  public function save($themaName)
+  {
+    if ($this->isThemaSelected())
+    {
+      $themaUsed = $this->_findThemaUsedInstance();
+    }
+    else
+    {
+      $themaUsed = new SnsConfig();
+      $themaUsed->setName('Thema_used');
+    }
+
+    $themaUsed->setValue($themaName);
+    $themaUsed->save();
+    return true;
+  }
+
+  private function _findThemaUsedInstance()
+  {
+    $snsConfigTable = Doctrine::getTable('SnsConfig');
+    return $snsConfigTable->retrieveByName('Thema_used');
   }
 
 }

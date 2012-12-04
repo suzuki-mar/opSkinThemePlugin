@@ -13,7 +13,7 @@ class opSkinThemaEvent
     $loaderParams['thema_path'] = __DIR__.'/../thema';
     $themaLoader = new opSkinThemaLoader($loaderParams);
 
-    $pluginModel = new opSkinThemaPlugin();
+    $pluginModel = new opSkinThemaInfo();
     $skinThema = $pluginModel->findUseSkinTehama();
     $response = sfContext::getInstance()->getResponse();
 
