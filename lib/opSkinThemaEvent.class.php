@@ -3,21 +3,40 @@
 class opSkinThemaEvent
 {
 
-  /**
-   * フィルターから呼び出される
-   */
   public static function enableThema(sfEvent $event)
   {
-    $loaderParams = array();
-    $loaderParams['web_path']   = sfConfig::get('sf_web_dir');
-    $loaderParams['thema_path'] = __DIR__.'/../thema';
-    $themaLoader = new opSkinThemaLoader($loaderParams);
+    if (self::isPrviewModule()) {
+      return false;
+    }
 
-    $pluginModel = new opSkinThemaInfo();
-    $skinThema = $pluginModel->findUseTehama();
+    $themaInfo = new opSkinThemaInfo();
+    $skinThema = $themaInfo->findUseTehama();
+
+    self::applyThema($skinThema);
+  }
+
+  public static function enablePreviewThema(sfEvent $event)
+  {
+
+    if (!self::isPrviewModule()) {
+      return false;
+    }
+
+    $request = sfContext::getInstance()->getRequest();
+    $skinThema = $request->getParameter('skin_name');
+
+    self::applyThema($skinThema);
+  }
+
+  private static function applyThema($skinThema)
+  {
+    $themaLoader = opThemaLoaderFactory::createLoaderInstance();
     $response = sfContext::getInstance()->getResponse();
-
     $themaLoader->enableSkinByThema($skinThema, $response);
   }
 
+  private static function isPrviewModule()
+  {
+    return (sfContext::getInstance()->getModuleName() === 'skinpreview');
+  }
 }

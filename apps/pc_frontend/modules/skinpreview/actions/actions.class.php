@@ -16,6 +16,6 @@ class skinpreviewActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    opSkinPluginLoader::enablePreviewSkin('opSkinBasic');
+    
   }
 }
