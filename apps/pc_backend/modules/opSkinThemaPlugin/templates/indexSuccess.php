@@ -1,13 +1,13 @@
-<h2><?php echo __('スキンプラグイン設定') ?></h2>
+<h2><?php echo __('スキンテーマ設定') ?></h2>
 
-<p><?php echo __('スキンプラグインはどれか一つのみが「有効」になっている必要があります。') ?></p>
+<p><?php echo __('スキンプテーマはどれか一つのみが「有効」になっている必要があります。') ?></p>
 <?php echo $form->renderFormTag(url_for('opSkinThemaPlugin/index')); ?>
 <table>
 <tr>
 <th><?php echo __('有効/無効') ?></th>
-<th><?php echo __('プラグイン名') ?></th>
+<th><?php echo __('テーマ名') ?></th>
 <th><?php echo __('バージョン') ?></th>
-<th><?php echo __('スキンの説明') ?></th>
+<th><?php echo __('テーマの説明') ?></th>
 <th><?php echo __('プレビュー') ?></th>
 </tr>
 <?php echo $form['plugin']->render() ?>
