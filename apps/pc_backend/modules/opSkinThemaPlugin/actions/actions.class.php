@@ -17,11 +17,7 @@ class opSkinThemaPluginActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $loaderParams = array();
-    $loaderParams['web_path']   = sfConfig::get('sf_web_dir');
-    $loaderParams['thema_path'] = __DIR__.'/../../../../../thema';
-
-    $loader = new opSkinThemaLoader($loaderParams);
+    $loader = opThemaLoaderFactory::createLoaderInstance();
     $plugins = $loader->loadPluginInsance();
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
