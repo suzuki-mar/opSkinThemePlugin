@@ -7,7 +7,7 @@
  * @subpackage opManagerSkinPlugin
  * @author     Your name here
  */
-class opManagerSkinPluginActions extends sfActions
+class opSkinThemaPluginActions extends sfActions
 {
 
   /**
@@ -17,12 +17,15 @@ class opManagerSkinPluginActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $loader = new opSkinPluginLoader();
+    $loaderParams = array();
+    $loaderParams['web_path']   = sfConfig::get('sf_web_dir');
+    $loaderParams['thema_path'] = __DIR__.'/../../../../../thema';
+
+    $loader = new opSkinThemaLoader($loaderParams);
     $plugins = $loader->loadPluginInsance();
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
-    require_once sfConfig::get('sf_apps_dir') . '/pc_backend/modules/plugin/lib/PluginActivationForm.class.php';
-    $this->form = new PluginActivationForm(array(), array('plugins' => $plugins, 'type' => 'skin'));
+    $this->form = new opThemaActivationForm(array(), array('plugins' => $plugins));
 
     if ($request->isMethod(sfRequest::POST))
     {
@@ -37,6 +40,8 @@ class opManagerSkinPluginActions extends sfActions
         $this->getUser()->setFlash('error', $this->form->getErrorSchema()->getMessage());
       }
     }
+
+    
   }
 
 }

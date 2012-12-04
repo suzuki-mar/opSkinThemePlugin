@@ -16,6 +16,7 @@ class opThemaActivationForm extends sfForm
     foreach ($plugins as $plugin)
     {
       $choices[$plugin->getName()] = $plugin->getName();
+
       if ($plugin->getIsActive())
       {
         $pluginDefault[] = $plugin->getName();
@@ -44,7 +45,7 @@ class opThemaActivationForm extends sfForm
 
     if (is_array($pluginDefault))
     {
-      $pluginDefault = $pluginDefault[0];
+      //$pluginDefault = $pluginDefault[0];
     }
 
     $this->setWidget($this->pluginFieldKey, new sfWidgetFormChoice($widgetOptions));
