@@ -69,7 +69,7 @@ class opSkinThemaLoader extends opInstalledPluginManager
     }
   }
 
-  public function loadPluginInsance()
+  public function loadThemaInsance()
   {
     $pattern = $this->getThemaPath().'/*';
 
@@ -82,18 +82,18 @@ class opSkinThemaLoader extends opInstalledPluginManager
     $plugins = array();
     foreach ($availableSkinNames as $name)
     {
-      $plugins[$name] = opPlugin::getInstance($name);
+      $plugins[$name] = opSkinThema::getInstance($name);
     }
 
     return $plugins;
   }
 
-  private function getThemaPath()
+  public function getThemaPath()
   {
     return $this->themaPath;
   }
 
-  private function getWebDir()
+  public function getWebDir()
   {
     return $this->webPath;
   }

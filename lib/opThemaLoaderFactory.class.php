@@ -7,6 +7,10 @@
 
 class opThemaLoaderFactory
 {
+  /**
+   *
+   * @return opSkinThemaLoader 
+   */
   public static function createLoaderInstance()
   {
     $loaderParams = array();

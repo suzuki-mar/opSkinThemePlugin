@@ -18,7 +18,7 @@ class opSkinThemaPluginActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $loader = opThemaLoaderFactory::createLoaderInstance();
-    $plugins = $loader->loadPluginInsance();
+    $plugins = $loader->loadThemaInsance();
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
     $this->form = new opThemaActivationForm(array(), array('plugins' => $plugins));
