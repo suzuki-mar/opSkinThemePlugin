@@ -7,7 +7,7 @@
  * @subpackage opManagerSkinPlugin
  * @author     Your name here
  */
-class opSkinThemaPluginActions extends sfActions
+class opSkinThemePluginActions extends sfActions
 {
 
   /**
@@ -17,11 +17,11 @@ class opSkinThemaPluginActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $loader = opThemaLoaderFactory::createLoaderInstance();
-    $plugins = $loader->loadThemaInsance();
+    $loader = opThemeLoaderFactory::createLoaderInstance();
+    $plugins = $loader->loadThemeInsance();
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
-    $this->form = new opThemaActivationForm(array(), array('plugins' => $plugins));
+    $this->form = new opThemeActivationForm(array(), array('plugins' => $plugins));
 
     if ($request->isMethod(sfRequest::POST))
     {

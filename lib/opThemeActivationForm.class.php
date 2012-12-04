@@ -1,6 +1,6 @@
 <?php
 
-class opThemaActivationForm extends sfForm
+class opThemeActivationForm extends sfForm
 {
 
   protected
@@ -40,8 +40,8 @@ class opThemaActivationForm extends sfForm
     $this->setWidget($this->pluginFieldKey, new sfWidgetFormChoice($widgetOptions));
     $this->setValidator($this->pluginFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
     
-    $themaInfo = new opSkinThemaInfo();
-    $this->setDefault($this->pluginFieldKey, $themaInfo->findUseTehama());
+    $ThemeInfo = new opThemeInfo();
+    $this->setDefault($this->pluginFieldKey, $ThemeInfo->findUseTehama());
 
     $this->widgetSchema->setNameFormat('plugin_activation[%s]');
   }
@@ -57,7 +57,7 @@ class opThemaActivationForm extends sfForm
       $plugin = $plugins[$name];
 
       //@todo 国際対応する
-      $linkUrl = '/pc_frontend_dev.php/skinpreview/index/skin_name/'.$plugin->getName();
+      $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$plugin->getName();
       $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
 
       $rows[] = $widget->renderContentTag('tr',
@@ -99,13 +99,13 @@ class opThemaActivationForm extends sfForm
       return false;
     }
 
-    //@todo pluginFieldKeyをthemaKeyみたいな感じに変更する
+    //@todo pluginFieldKeyをThemeKeyみたいな感じに変更する
     $value = $this->values[$this->pluginFieldKey];
 
-    $skinThemaInfo = new opSkinThemaInfo();
+    $skinThemeInfo = new opThemeInfo();
     
 
-    return $skinThemaInfo->save($value);
+    return $skinThemeInfo->save($value);
   }
 
 }

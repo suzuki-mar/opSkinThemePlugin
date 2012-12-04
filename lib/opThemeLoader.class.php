@@ -9,11 +9,11 @@
  */
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
-class opSkinThemaLoader extends opInstalledPluginManager
+class opThemeLoader extends opInstalledPluginManager
 {
 
   private $webPath;
-  private $themaPath;
+  private $ThemePath;
 
   /**
    *
@@ -22,34 +22,34 @@ class opSkinThemaLoader extends opInstalledPluginManager
   public function __construct(array $params)
   {
     $this->webPath = $params['web_path'];
-    $this->themaPath = $params['thema_path'];
+    $this->ThemePath = $params['theme_path'];
   }
 
   /**
    * メソッドの結合度を下げるために、レスポンスオブジェクトを引数に渡す
    *
    */
-  public function enableSkinByThema($themaName, sfResponse $response)
+  public function enableSkinByTheme($themeName, sfResponse $response)
   {
-    if (!$this->existsAssetsByThemaName($themaName))
+    if (!$this->existsAssetsByThemeName($themeName))
     {
-      $themaName = $this->findSubstitutionThema();
+      $themeName = $this->findSubstitutionTheme();
     }
 
-    $this->includeCSSOrJS($themaName, 'css', $response);
-    $this->includeCSSOrJS($themaName, 'js', $response);
+    $this->includeCSSOrJS($themeName, 'css', $response);
+    $this->includeCSSOrJS($themeName, 'js', $response);
   }
 
-  private function existsAssetsByThemaName($themaName)
+  private function existsAssetsByThemeName($themeName)
   {
-    $themaName = $this->getWebDir() . '/' . $themaName . '/';
-    return file_exists($themaName);
+    $themeName = $this->getWebDir().'/'.$themeName;
+    return file_exists($themeName);
   }
 
   /**
    * 選択したテーマが使用できない場合に代わりのスキンを探す
    */
-  private function findSubstitutionThema()
+  private function findSubstitutionTheme()
   {
     $pattern = $this->getWebDir() . '/*';
 
@@ -63,15 +63,15 @@ class opSkinThemaLoader extends opInstalledPluginManager
    *
    * @todo CSSとJS以外だったら例外を出す
    */
-  private function includeCSSOrJS($themaName, $type, sfResponse $response)
+  private function includeCSSOrJS($themeName, $type, sfResponse $response)
   {
 
-    $pattern = $this->getWebDir() . '/' . $themaName . '/' . $type . '/' . '*.' . $type;
+    $pattern = $this->getWebDir().'/'.$themeName.'/'.$type.'/'.'*.'.$type;
 
     $files = array();
     foreach (glob($pattern) as $fileName)
     {
-      $files[] = str_replace($this->getWebDir(), '/opSkinThemaPlugin', $fileName);
+      $files[] = str_replace($this->getWebDir(), '/opSkinThemePlugin', $fileName);
     }
 
     if ($type === 'css')
@@ -91,32 +91,31 @@ class opSkinThemaLoader extends opInstalledPluginManager
     }
   }
 
-  public function loadThemaInsance()
+  public function loadThemeInsance()
   {
-    $pattern = $this->getThemaPath() . '/*';
+    $pattern = $this->getThemePath() . '/*';
 
-    $availableThemaNames = array();
+    $availableThemeNames = array();
     foreach (glob($pattern, GLOB_ONLYDIR) as $dirPath)
     {
-      
-      if (preg_match("/op.*Thema$/", $dirPath)) {
-        $availableThemaNames[] = pathinfo($dirPath, PATHINFO_FILENAME);
+      if (preg_match("/op.*Theme$/", $dirPath)) {
+        $availableThemeNames[] = pathinfo($dirPath, PATHINFO_FILENAME);
       }
       
     }
 
     $plugins = array();
-    foreach ($availableThemaNames as $name)
+    foreach ($availableThemeNames as $name)
     {
-      $plugins[$name] = opSkinThema::getInstance($name);
+      $plugins[$name] = opTheme::getInstance($name);
     }
 
     return $plugins;
   }
 
-  public function getThemaPath()
+  public function getThemePath()
   {
-    return $this->themaPath;
+    return $this->ThemePath;
   }
 
   public function getWebDir()

@@ -4,7 +4,7 @@
  * テーマ用のクラスを作成した
  */
 
-class opSkinThema
+class opTheme
 {
   public static function getInstance($name)
   {
@@ -21,11 +21,11 @@ class opSkinThema
    * 複数回設定ファイルを読みこまなくてすむようにするため
    * @var array
    */
-  private $themaInfo = array();
+  private $themeInfo = array();
 
   public function  __construct()
   {
-    $this->loader = opThemaLoaderFactory::createLoaderInstance();
+    $this->loader = opThemeLoaderFactory::createLoaderInstance();
   }
 
 
@@ -53,13 +53,14 @@ class opSkinThema
 
   private function parseInfoFile()
   {
-    if (!empty($this->themaInfo)) {
-      return $this->themaInfo;
+    if (!empty($this->themeInfo)) {
+      return $this->themeInfo;
     }
 
-    $themaPath = $this->loader->getThemaPath().'/'.$this->name.'/thema.yml';
-    $this->themaInfo = sfYaml::load($themaPath);
-    return $this->themaInfo;
+    $themePath = $this->loader->getThemePath().'/'.$this->name.'/theme.yml';
+    $this->themeInfo = sfYaml::load($themePath);
+
+    return $this->themeInfo;
   }
 
 }

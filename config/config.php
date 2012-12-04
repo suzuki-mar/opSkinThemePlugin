@@ -1,4 +1,4 @@
 <?php
 
-$this->dispatcher->connect('op_action.post_execute', array('opSkinThemaEvent', 'enableThema'));
-$this->dispatcher->connect('op_action.post_execute', array('opSkinThemaEvent', 'enablePreviewThema'));
+$this->dispatcher->connect('op_action.post_execute', array('opThemeEvent', 'enableTheme'));
+$this->dispatcher->connect('op_action.post_execute', array('opThemeEvent', 'enablePreviewTheme'));
