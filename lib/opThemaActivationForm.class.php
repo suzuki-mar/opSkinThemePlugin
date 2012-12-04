@@ -64,12 +64,17 @@ class opThemaActivationForm extends sfForm
     {
       $name = substr($id, strlen($prefix));
       $plugin = $plugins[$name];
+
+      //@todo 国際対応する
+      $linkUrl = '/pc_frontend_dev.php/skinpreview/index/skin_name/'.$plugin->getName();
+      $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
+
       $rows[] = $widget->renderContentTag('tr',
                       $widget->renderContentTag('td', $input['input']) .
                       $widget->renderContentTag('td', $input['label']) .
                       $widget->renderContentTag('td', sfWidget::escapeOnce($plugin->getVersion())) .
                       $widget->renderContentTag('td', sfWidget::escapeOnce($plugin->getSummary())) .
-                      $widget->renderContentTag('td', 'プレビューへのリンク')
+                      $widget->renderContentTag('td', $linkTag)
       );
     }
     return!$rows ? '' : implode($widget->getOption('separator'), $rows);
