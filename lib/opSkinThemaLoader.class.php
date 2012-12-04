@@ -95,14 +95,18 @@ class opSkinThemaLoader extends opInstalledPluginManager
   {
     $pattern = $this->getThemaPath() . '/*';
 
-    $availableSkinNames = array();
-    foreach (glob($pattern, GLOB_ONLYDIR) as $dirName)
+    $availableThemaNames = array();
+    foreach (glob($pattern, GLOB_ONLYDIR) as $dirPath)
     {
-      $availableSkinNames[] = pathinfo($dirName, PATHINFO_FILENAME);
+      
+      if (preg_match("/op.*Thema$/", $dirPath)) {
+        $availableThemaNames[] = pathinfo($dirPath, PATHINFO_FILENAME);
+      }
+      
     }
 
     $plugins = array();
-    foreach ($availableSkinNames as $name)
+    foreach ($availableThemaNames as $name)
     {
       $plugins[$name] = opSkinThema::getInstance($name);
     }
