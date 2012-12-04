@@ -49,7 +49,7 @@ class opSkinThemaLoader extends opInstalledPluginManager
     $files = array();
     foreach (glob($pattern) as $fileName)
     {
-      $files[] = str_replace($this->getWebDir(), '', $fileName);
+      $files[] = str_replace($this->getWebDir(), '/opSkinThemaPlugin', $fileName);
     }
 
     if ($type === 'css')

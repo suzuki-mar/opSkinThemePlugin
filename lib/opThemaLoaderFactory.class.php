@@ -14,7 +14,7 @@ class opThemaLoaderFactory
   public static function createLoaderInstance()
   {
     $loaderParams = array();
-    $loaderParams['web_path']   = sfConfig::get('sf_web_dir');
+    $loaderParams['web_path']   = sfConfig::get('sf_web_dir').'/opSkinThemaPlugin';
     $loaderParams['thema_path'] = __DIR__.'/../web';
 
     return new opSkinThemaLoader($loaderParams);
