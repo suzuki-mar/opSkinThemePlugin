@@ -11,6 +11,7 @@ error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 class opSkinThemaLoader extends opInstalledPluginManager
 {
+
   private $webPath;
   private $themaPath;
 
@@ -18,33 +19,54 @@ class opSkinThemaLoader extends opInstalledPluginManager
    *
    * @todo 必須パラメーターがない場合は例外を発生させるようにする
    */
-  public function  __construct(array $params)
+  public function __construct(array $params)
   {
     $this->webPath = $params['web_path'];
-    $this->themaPath  = $params['thema_path'];
+    $this->themaPath = $params['thema_path'];
   }
-
 
   /**
    * メソッドの結合度を下げるために、レスポンスオブジェクトを引数に渡す
    *
    */
-  public function enableSkinByThema($skinThema, sfResponse $response)
+  public function enableSkinByThema($themaName, sfResponse $response)
   {
-    $this->includeCSSOrJS($skinThema, 'css', $response);
-    $this->includeCSSOrJS($skinThema, 'js',  $response);
+    if (!$this->existsAssetsByThemaName($themaName))
+    {
+      $themaName = $this->findSubstitutionThema();
+    }
+
+    $this->includeCSSOrJS($themaName, 'css', $response);
+    $this->includeCSSOrJS($themaName, 'js', $response);
   }
 
+  private function existsAssetsByThemaName($themaName)
+  {
+    $themaName = $this->getWebDir() . '/' . $themaName . '/';
+    return file_exists($themaName);
+  }
 
+  /**
+   * 選択したテーマが使用できない場合に代わりのスキンを探す
+   */
+  private function findSubstitutionThema()
+  {
+    $pattern = $this->getWebDir() . '/*';
+
+    foreach (glob($pattern, GLOB_ONLYDIR) as $dirPath)
+    {
+      return str_replace($this->getWebDir(), '', $dirPath);
+    }
+  }
 
   /**
    *
    * @todo CSSとJS以外だったら例外を出す
    */
-  private function includeCSSOrJS($skinThema, $type, sfResponse $response)
+  private function includeCSSOrJS($themaName, $type, sfResponse $response)
   {
 
-    $pattern =  $this->getWebDir().'/'.$skinThema.'/'.$type.'/'.'*.'.$type;
+    $pattern = $this->getWebDir() . '/' . $themaName . '/' . $type . '/' . '*.' . $type;
 
     $files = array();
     foreach (glob($pattern) as $fileName)
@@ -71,7 +93,7 @@ class opSkinThemaLoader extends opInstalledPluginManager
 
   public function loadThemaInsance()
   {
-    $pattern = $this->getThemaPath().'/*';
+    $pattern = $this->getThemaPath() . '/*';
 
     $availableSkinNames = array();
     foreach (glob($pattern, GLOB_ONLYDIR) as $dirName)
@@ -97,6 +119,5 @@ class opSkinThemaLoader extends opInstalledPluginManager
   {
     return $this->webPath;
   }
-
 
 }
