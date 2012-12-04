@@ -18,14 +18,14 @@ class opSkinThemePluginActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $loader = opThemeLoaderFactory::createLoaderInstance();
-    $plugins = $loader->loadThemeInsance();
+    $themes = $loader->loadThemeInsance();
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
-    $this->form = new opThemeActivationForm(array(), array('plugins' => $plugins));
+    $this->form = new opThemeActivationForm(array(), array('themes' => $themes));
 
     if ($request->isMethod(sfRequest::POST))
     {
-      $this->form->bind($this->request->getParameter('plugin_activation'));
+      $this->form->bind($this->request->getParameter('theme_activation'));
       if ($this->form->isValid())
       {
         $this->getUser()->setFlash('notice', 'Saved.');

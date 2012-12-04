@@ -4,17 +4,17 @@ class opThemeActivationForm extends sfForm
 {
 
   protected
-  $pluginFieldKey = 'plugin';
+  $themeFieldKey = 'theme';
 
   public function configure()
   {
-    $plugins = $this->getOption('plugins');
+    $themes = $this->getOption('themes');
 
     $choices = array();
 
-    foreach ($plugins as $plugin)
+    foreach ($themes as $theme)
     {
-      $choices[$plugin->getName()] = $plugin->getName();
+      $choices[$theme->getName()] = $theme->getName();
     }
 
     $widgetOptions = array(
@@ -35,36 +35,36 @@ class opThemeActivationForm extends sfForm
     $widgetOptions['multiple'] = false;
     $validatorOptions['multiple'] = false;
     $validatorOptions['required'] = true;
-    $validatorMessages['required'] = 'You must activate only a skin plugin.';
+    $validatorMessages['required'] = 'You must activate only a skin theme.';
 
-    $this->setWidget($this->pluginFieldKey, new sfWidgetFormChoice($widgetOptions));
-    $this->setValidator($this->pluginFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
+    $this->setWidget($this->themeFieldKey, new sfWidgetFormChoice($widgetOptions));
+    $this->setValidator($this->themeFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
     
     $ThemeInfo = new opThemeInfo();
-    $this->setDefault($this->pluginFieldKey, $ThemeInfo->findUseTehama());
+    $this->setDefault($this->themeFieldKey, $ThemeInfo->findUseTehama());
 
-    $this->widgetSchema->setNameFormat('plugin_activation[%s]');
+    $this->widgetSchema->setNameFormat('theme_activation[%s]');
   }
 
   public function formatter($widget, $inputs)
   {
-    $plugins = $this->getOption('plugins');
-    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), $this->pluginFieldKey)) . '_';
+    $themes = $this->getOption('themes');
+    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), $this->themeFieldKey)) . '_';
     $rows = array();
     foreach ($inputs as $id => $input)
     {
       $name = substr($id, strlen($prefix));
-      $plugin = $plugins[$name];
+      $theme = $themes[$name];
 
       //@todo 国際対応する
-      $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$plugin->getName();
+      $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getName();
       $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
 
       $rows[] = $widget->renderContentTag('tr',
                       $widget->renderContentTag('td', $input['input']) .
                       $widget->renderContentTag('td', $input['label']) .
-                      $widget->renderContentTag('td', sfWidget::escapeOnce($plugin->getVersion())) .
-                      $widget->renderContentTag('td', sfWidget::escapeOnce($plugin->getSummary())) .
+                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getVersion())) .
+                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getSummary())) .
                       $widget->renderContentTag('td', $linkTag)
       );
     }
@@ -79,7 +79,7 @@ class opThemeActivationForm extends sfForm
       $newErrorSchema = new sfValidatorErrorSchema($this->validatorSchema);
       foreach ($this->errorSchema as $name => $error)
       {
-        if ($this->pluginFieldKey === $name)
+        if ($this->themeFieldKey === $name)
         {
           $newErrorSchema->addError($error);
         }
@@ -99,8 +99,8 @@ class opThemeActivationForm extends sfForm
       return false;
     }
 
-    //@todo pluginFieldKeyをThemeKeyみたいな感じに変更する
-    $value = $this->values[$this->pluginFieldKey];
+    //@todo themeFieldKeyをThemeKeyみたいな感じに変更する
+    $value = $this->values[$this->themeFieldKey];
 
     $skinThemeInfo = new opThemeInfo();
     

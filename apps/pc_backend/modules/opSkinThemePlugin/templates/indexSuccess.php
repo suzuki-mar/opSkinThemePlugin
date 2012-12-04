@@ -10,7 +10,7 @@
 <th><?php echo __('テーマの説明') ?></th>
 <th><?php echo __('プレビュー') ?></th>
 </tr>
-<?php echo $form['plugin']->render() ?>
+<?php echo $form['theme']->render() ?>
 <tr>
 <td colspan="5">
 <?php echo $form->renderHiddenFields() ?>
