@@ -14,7 +14,7 @@ class opSkinThemaEvent
     $themaLoader = new opSkinThemaLoader($loaderParams);
 
     $pluginModel = new opSkinThemaInfo();
-    $skinThema = $pluginModel->findUseSkinTehama();
+    $skinThema = $pluginModel->findUseTehama();
     $response = sfContext::getInstance()->getResponse();
 
     $themaLoader->enableSkinByThema($skinThema, $response);
