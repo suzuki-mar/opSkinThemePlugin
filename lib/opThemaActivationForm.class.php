@@ -11,16 +11,10 @@ class opThemaActivationForm extends sfForm
     $plugins = $this->getOption('plugins');
 
     $choices = array();
-    $pluginDefault = array();
 
     foreach ($plugins as $plugin)
     {
       $choices[$plugin->getName()] = $plugin->getName();
-
-      if ($plugin->getIsActive())
-      {
-        $pluginDefault[] = $plugin->getName();
-      }
     }
 
     $widgetOptions = array(
@@ -43,14 +37,11 @@ class opThemaActivationForm extends sfForm
     $validatorOptions['required'] = true;
     $validatorMessages['required'] = 'You must activate only a skin plugin.';
 
-    if (is_array($pluginDefault))
-    {
-      //$pluginDefault = $pluginDefault[0];
-    }
-
     $this->setWidget($this->pluginFieldKey, new sfWidgetFormChoice($widgetOptions));
     $this->setValidator($this->pluginFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
-    $this->setDefault($this->pluginFieldKey, $pluginDefault);
+    
+    $themaInfo = new opSkinThemaInfo();
+    $this->setDefault($this->pluginFieldKey, $themaInfo->findUseTehama());
 
     $this->widgetSchema->setNameFormat('plugin_activation[%s]');
   }
