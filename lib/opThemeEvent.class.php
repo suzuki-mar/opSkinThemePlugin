@@ -33,9 +33,16 @@ class opThemeEvent
     $request = sfContext::getInstance()->getRequest();
     $themeName = $request->getParameter('theme_name');
 
+    if ($themeName === null) {
+      return false;
+    }
+
     $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 
-    $response = sfContext::getInstance()->getResponse();
+    if (!$themeLoader->existsAssetsByThemeName($themeName))
+    {
+      return false;
+    }
 
     self::enableSkinByTheme($themeName);
   }

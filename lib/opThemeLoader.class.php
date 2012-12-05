@@ -27,6 +27,10 @@ class opThemeLoader extends opInstalledPluginManager
 
   public function existsAssetsByThemeName($themeName)
   {
+    if ($themeName === null) {
+      return false;
+    }
+
     $themeName = $this->getWebDir().'/'.$themeName;
     return file_exists($themeName);
   }
