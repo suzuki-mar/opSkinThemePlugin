@@ -60,13 +60,19 @@ class opThemeActivationForm extends sfForm
       $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getName();
       $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
 
+      $tagIds = array(
+        'version' => 'version_'.$theme->getName(),
+        'summery' => 'summery_'.$theme->getName(),
+      );
+
       $rows[] = $widget->renderContentTag('tr',
                       $widget->renderContentTag('td', $input['input']) .
                       $widget->renderContentTag('td', $input['label']) .
-                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getVersion())) .
-                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getSummary())) .
+                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getVersion()), array('id' => $tagIds['version'])) .
+                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getSummary()), array('id' => $tagIds['summery'])) .
                       $widget->renderContentTag('td', $linkTag)
       );
+
     }
     return!$rows ? '' : implode($widget->getOption('separator'), $rows);
   }
