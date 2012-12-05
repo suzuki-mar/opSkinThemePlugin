@@ -74,8 +74,9 @@ class opThemeLoader extends opInstalledPluginManager
 
   public function findAssetsPathByThemeNameAndType($themeName, $type)
   {
-    $pattern = $this->getWebDir().$themeName.'/'.$type.'/'.'*.'.$type;
+    $pattern = $this->getWebDir().'/'.$themeName.'/'.$type.'/'.'*.'.$type;
 
+    $files = array();
     foreach (glob($pattern) as $fileName)
     {
       $files[] = str_replace($this->getWebDir(), '/opSkinThemePlugin', $fileName);
