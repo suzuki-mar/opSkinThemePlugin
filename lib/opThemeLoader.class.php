@@ -28,6 +28,7 @@ class opThemeLoader extends opInstalledPluginManager
   /**
    * メソッドの結合度を下げるために、レスポンスオブジェクトを引数に渡す
    *
+   * @todo Eventクラスに遷移させる
    */
   public function enableSkinByTheme($themeName, sfResponse $response)
   {
@@ -98,7 +99,9 @@ class opThemeLoader extends opInstalledPluginManager
     $availableThemeNames = array();
     foreach (glob($pattern, GLOB_ONLYDIR) as $dirPath)
     {
-      if (preg_match("/op.*Theme$/", $dirPath)) {
+      //main.cssがないものはテーマディレクトリとして扱わない
+      $mainCssPath = $dirPath.'/css/main.css';
+      if (file_exists($mainCssPath)) {
         $availableThemeNames[] = pathinfo($dirPath, PATHINFO_FILENAME);
       }
       
