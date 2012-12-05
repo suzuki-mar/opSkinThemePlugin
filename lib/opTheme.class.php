@@ -8,14 +8,13 @@ class opTheme
 {
   public static function getInstance($name)
   {
-    $instance = new self();
-    $instance->setName($name);
-
+    $instance = new self($name);
     return $instance;
   }
 
-  private $name;
-  private $loader;
+  private 
+  $name,
+  $loader;
 
   /**
    * 複数回設定ファイルを読みこまなくてすむようにするため
@@ -23,15 +22,14 @@ class opTheme
    */
   private $themeInfo = array();
 
-  public function  __construct()
+  public function  __construct($name)
   {
-    $this->loader = opThemeLoaderFactory::createLoaderInstance();
-  }
-
-
-  public function setName($name)
-  {
+    $this->loader    = opThemeLoaderFactory::createLoaderInstance();
+    
     $this->name = $name;
+
+    $themePath = realpath($this->loader->getThemePath().'/'.$this->name.'/theme.yml');
+    $this->themeInfo = sfYaml::load($themePath);
   }
 
   public function getName()
@@ -41,26 +39,12 @@ class opTheme
 
   public function getVersion()
   {
-    $info = $this->parseInfoFile();
-    return $info['version'];
+    return $this->themeInfo['version'];
   }
 
   public function getSummary()
   {
-    $info = $this->parseInfoFile();
-    return $info['summary'];
-  }
-
-  private function parseInfoFile()
-  {
-    if (!empty($this->themeInfo)) {
-      return $this->themeInfo;
-    }
-
-    $themePath = $this->loader->getThemePath().'/'.$this->name.'/theme.yml';
-    $this->themeInfo = sfYaml::load($themePath);
-
-    return $this->themeInfo;
+    return $this->themeInfo['summary'];
   }
 
 }

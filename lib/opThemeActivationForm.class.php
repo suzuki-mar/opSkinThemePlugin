@@ -25,21 +25,24 @@ class opThemeActivationForm extends sfForm
             'formatter' => array($this, 'formatter')
         )
     );
+
+    $widgetOptions['multiple'] = false;
+    $this->setWidget($this->themeFieldKey, new sfWidgetFormChoice($widgetOptions));
+
     $validatorOptions = array(
         'choices' => array_keys($choices),
         'multiple' => true,
         'required' => false,
     );
-    $validatorMessages = array();
 
-    $widgetOptions['multiple'] = false;
     $validatorOptions['multiple'] = false;
     $validatorOptions['required'] = true;
+
+    $validatorMessages = array();
     $validatorMessages['required'] = 'You must activate only a skin theme.';
 
-    $this->setWidget($this->themeFieldKey, new sfWidgetFormChoice($widgetOptions));
     $this->setValidator($this->themeFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
-    
+
     $ThemeInfo = new opThemeInfo();
     $this->setDefault($this->themeFieldKey, $ThemeInfo->findUseTehama());
 
@@ -48,38 +51,53 @@ class opThemeActivationForm extends sfForm
 
   public function formatter($widget, $inputs)
   {
+    if (empty($inputs))
+    {
+      return '';
+    }
+
     $themes = $this->getOption('themes');
-    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), $this->themeFieldKey)) . '_';
+    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), $this->themeFieldKey)).'_';
+
     $rows = array();
     foreach ($inputs as $id => $input)
     {
       $name = substr($id, strlen($prefix));
       $theme = $themes[$name];
 
-      //@todo 国際対応する
-      $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getName();
-      $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
+      $rows[] = $this->createRowTag($widget, $input, $theme);
+    }
 
-      $tagIds = array(
+    $rowString = implode($widget->getOption('separator'), $rows);
+
+    return $rowString;
+  }
+
+  private function createRowTag($widget, $input, $theme)
+  {
+    //@todo 国際対応する
+    $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getName();
+    $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
+
+    $tagIds = array(
         'version' => 'version_'.$theme->getName(),
         'summery' => 'summery_'.$theme->getName(),
-      );
+    );
 
-      $rows[] = $widget->renderContentTag('tr',
-                      $widget->renderContentTag('td', $input['input']) .
-                      $widget->renderContentTag('td', $input['label']) .
-                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getVersion()), array('id' => $tagIds['version'])) .
-                      $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getSummary()), array('id' => $tagIds['summery'])) .
-                      $widget->renderContentTag('td', $linkTag)
-      );
+    $rowContentTag =
+            $widget->renderContentTag('td', $input['input']).
+            $widget->renderContentTag('td', $input['label']).
+            $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getVersion()), array('id' => $tagIds['version'])).
+            $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getSummary()), array('id' => $tagIds['summery'])).
+            $widget->renderContentTag('td', $linkTag);
 
-    }
-    return!$rows ? '' : implode($widget->getOption('separator'), $rows);
+    return $widget->renderContentTag('tr', $rowContentTag);
   }
 
   public function bind(array $taintedValues = null, array $taintedFiles = null)
   {
     parent::bind($taintedValues, $taintedFiles);
+
     if (count($this->errorSchema))
     {
       $newErrorSchema = new sfValidatorErrorSchema($this->validatorSchema);
@@ -94,6 +112,7 @@ class opThemeActivationForm extends sfForm
           $newErrorSchema->addError($error, $name);
         }
       }
+
       $this->errorSchema = $newErrorSchema;
     }
   }
@@ -105,11 +124,9 @@ class opThemeActivationForm extends sfForm
       return false;
     }
 
-    //@todo themeFieldKeyをThemeKeyみたいな感じに変更する
     $value = $this->values[$this->themeFieldKey];
 
     $skinThemeInfo = new opThemeInfo();
-    
 
     return $skinThemeInfo->save($value);
   }
