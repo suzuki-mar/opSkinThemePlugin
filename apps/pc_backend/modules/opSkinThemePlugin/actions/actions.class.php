@@ -14,6 +14,12 @@ class opSkinThemePluginActions extends sfActions
    * @var opThemeLoader
    */
   private $loader;
+
+  /**
+   * @var opThemeConfig
+   */
+  private $config;
+
   /**
    * 登録してあるテーマ一覧
    */
@@ -24,6 +30,7 @@ class opSkinThemePluginActions extends sfActions
     parent::preExecute();
 
     $this->loader = opThemeLoaderFactory::createLoaderInstance();
+    $this->config = new opThemeConfig();
   }
 
   /**
@@ -34,18 +41,10 @@ class opSkinThemePluginActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->themes = $this->loader->loadThemeInsance();
+    $this->useTheme = $this->config->findUseTehama();
 
-    $config = new opThemeConfig();
-    $this->useTheme = $config->findUseTehama();
-    $this->existsUseTheme = $this->loader->existsAssetsByThemeName($config->findUseTehama());
-
-    if ($this->existsNotInfoTheme())
-    {
-      $this->notInfoThemeList = $this->findNotInfoThemeNames();
-    }
-
-    $this->isExistsErrorTheme = (isset($this->notInfoThemeList) || $this->existsUseTheme === false);
-
+    $this->checkThemeDirValidity();
+    
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
     $this->form = new opThemeActivationForm(array(), array('themes' => $this->themes));
 
@@ -62,6 +61,23 @@ class opSkinThemePluginActions extends sfActions
         $this->getUser()->setFlash('error', $this->form->getErrorSchema()->getMessage());
       }
     }
+  }
+
+  /**
+   * テーマが正しく設置されているかを確認する
+   */
+  private function checkThemeDirValidity()
+  {
+    $this->existsUseTheme = $this->loader->existsAssetsByThemeName($this->config->findUseTehama());
+
+    if ($this->existsNotInfoTheme())
+    {
+      $this->notInfoThemeList = $this->findNotInfoThemeNames();
+    }
+
+    $this->isExistsErrorTheme = (
+            isset($this->notInfoThemeList)
+            || $this->existsUseTheme === false);
   }
 
   private function existsNotInfoTheme()
