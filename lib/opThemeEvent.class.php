@@ -10,7 +10,7 @@ class opThemeEvent
       return false;
     }
 
-    $themeInfo = new opThemeInfo();
+    $themeInfo = new opThemeConfig();
     $themeName = $themeInfo->findUseTehama();
     $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 

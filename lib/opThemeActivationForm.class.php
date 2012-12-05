@@ -43,7 +43,7 @@ class opThemeActivationForm extends sfForm
 
     $this->setValidator($this->themeFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
 
-    $ThemeInfo = new opThemeInfo();
+    $ThemeInfo = new opThemeConfig();
     $this->setDefault($this->themeFieldKey, $ThemeInfo->findUseTehama());
 
     $this->widgetSchema->setNameFormat('theme_activation[%s]');
@@ -126,7 +126,7 @@ class opThemeActivationForm extends sfForm
 
     $value = $this->values[$this->themeFieldKey];
 
-    $skinThemeInfo = new opThemeInfo();
+    $skinThemeInfo = new opThemeConfig();
 
     return $skinThemeInfo->save($value);
   }

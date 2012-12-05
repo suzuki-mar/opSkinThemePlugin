@@ -1,6 +1,6 @@
 <?php
 
-class opThemeInfo
+class opThemeConfig
 {
 
   /**
