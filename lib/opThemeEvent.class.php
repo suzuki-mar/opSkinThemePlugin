@@ -33,7 +33,8 @@ class opThemeEvent
     $request = sfContext::getInstance()->getRequest();
     $themeName = $request->getParameter('theme_name');
 
-    if ($themeName === null) {
+    if ($themeName === null)
+    {
       return false;
     }
 
@@ -56,11 +57,17 @@ class opThemeEvent
   {
     $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 
-    $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, 'css');
-    self::includeCSSOrJS($filePaths, 'css');
+    $assetsType = array('css', 'js');
+    foreach ($assetsType as $type)
+    {
+      $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, $type);
 
-    $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, 'js');
-    self::includeCSSOrJS($filePaths, 'js');
+      if ($filePaths !== false)
+      {
+        self::includeCSSOrJS($filePaths, $type);
+      }
+    }
+
   }
 
   /**
@@ -86,7 +93,6 @@ class opThemeEvent
         $response->addJavaScript($file, 'last');
       }
     }
-
   }
 
 }

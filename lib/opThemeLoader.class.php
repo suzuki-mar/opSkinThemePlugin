@@ -81,6 +81,10 @@ class opThemeLoader extends opInstalledPluginManager
       $files[] = str_replace($this->getWebDir(), '/opSkinThemePlugin', $fileName);
     }
 
+    if (empty($files)) {
+      return false;
+    }
+
     return $files;
   }
 
