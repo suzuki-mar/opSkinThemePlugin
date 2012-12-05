@@ -35,12 +35,16 @@ class opSkinThemePluginActions extends sfActions
   {
     $this->themes = $this->loader->loadThemeInsance();
 
+    $config = new opThemeConfig();
+    $this->useTheme = $config->findUseTehama();
+    $this->existsUseTheme = $this->loader->existsAssetsByThemeName($config->findUseTehama());
+
     if ($this->existsNotInfoTheme())
     {
       $this->notInfoThemeList = $this->findNotInfoThemeNames();
     }
 
-    $this->isExistsErrorTheme = isset($this->notInfoThemeList);
+    $this->isExistsErrorTheme = (isset($this->notInfoThemeList) || $this->existsUseTheme === false);
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
     $this->form = new opThemeActivationForm(array(), array('themes' => $this->themes));

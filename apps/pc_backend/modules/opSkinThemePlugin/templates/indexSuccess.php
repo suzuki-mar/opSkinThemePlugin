@@ -1,12 +1,22 @@
 <h2><?php echo __('スキンテーマ設定') ?></h2>
 
 <?php if ($isExistsErrorTheme): ?>
-<h3>テーマのエラー情報</h3>
-<p>以下のテーマの情報が設定されていません<br />
-<?php foreach ($notInfoThemeList as $theme): ?>
-<?php echo $theme.'テーマ' ?> <br />
-<?php endforeach; ?>
-</p>
+  <h3>テーマのエラー情報</h3>
+
+  <?php if (!$existsUseTheme): ?>
+    <p><?php echo '使用しているテーマの'.$useTheme.'が公開ディレクトリにありません' ?></p>
+    <?php if (isset($notInfoThemeList)): //行詰めで表示されてしまうので改行する?>
+      <br />
+    <?php endif; ?>
+  <?php endif; ?>
+
+  <?php if (isset($notInfoThemeList)): ?>
+    <p>以下のテーマの情報が設定されていません<br />
+    <?php foreach ($notInfoThemeList as $theme): ?>
+      <?php echo $theme.'テーマ' ?> <br />
+    <?php endforeach; ?>
+    </p>
+  <?php endif; ?>
 
 <br />
 <?php endif; ?>
