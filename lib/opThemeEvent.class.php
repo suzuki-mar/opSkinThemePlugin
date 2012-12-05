@@ -24,7 +24,7 @@ class opThemeEvent
       return false;
     }
 
-    $themeName = $themeInfo->findUseTehama();
+    $themeName = $themeInfo->findUseTheme();
     $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 
     if (!$themeLoader->existsAssetsByThemeName($themeName))

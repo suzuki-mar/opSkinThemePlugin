@@ -41,7 +41,7 @@ class opSkinThemePluginActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->themes = $this->loader->loadThemeInsance();
-    $this->useTheme = $this->config->findUseTehama();
+    $this->useTheme = $this->config->findUseTheme();
 
     $this->checkThemeDirValidity();
     
@@ -70,7 +70,7 @@ class opSkinThemePluginActions extends sfActions
    */
   private function checkThemeDirValidity()
   {
-    $this->existsUseTheme = $this->loader->existsAssetsByThemeName($this->config->findUseTehama());
+    $this->existsUseTheme = $this->loader->existsAssetsByThemeName($this->useTheme);
 
     if ($this->existsNotInfoTheme())
     {

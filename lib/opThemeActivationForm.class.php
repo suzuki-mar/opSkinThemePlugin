@@ -47,7 +47,7 @@ class opThemeActivationForm extends sfForm
 
     if ($themeInfo->registeredUsedTheme())
     {
-      $default = $themeInfo->findUseTehama();
+      $default = $themeInfo->findUseTheme();
       
     }
     else

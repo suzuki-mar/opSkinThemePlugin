@@ -6,7 +6,7 @@ class opThemeConfig
   /**
    * @todo メソッド名を修正する
    */
-  public function findUseTehama()
+  public function findUseTheme()
   {
     if ($this->_findThemeUsedInstance() === null) {
       return null;
