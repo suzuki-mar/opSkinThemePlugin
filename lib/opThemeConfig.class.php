@@ -5,29 +5,25 @@ class opThemeConfig
 
   /**
    * @todo テーマがひとつも有効になっていない場合にエラーになる
-   * @todo メソッド名が面白いほどタイポしている
    */
   public function findUseTehama()
   {
     return $this->_findThemeUsedInstance()->getValue();
   }
 
-  /**
-   * @todo メソッド名を変更する Selectedとか自分でも意味がわからなかった
-   */
-  public function isThemeSelected()
+  public function registeredUsedTheme()
   {
     return ($this->_findThemeUsedInstance() !== null);
   }
 
-  public function isThemeUnSelected()
+  public function unRegisteredisTheme()
   {
-    return!($this->isThemeSelected());
+    return!($this->registeredUsedTheme());
   }
 
   public function save($ThemeName)
   {
-    if ($this->isThemeSelected())
+    if ($this->registeredUsedTheme())
     {
       $themeUsed = $this->_findThemeUsedInstance();
     }
