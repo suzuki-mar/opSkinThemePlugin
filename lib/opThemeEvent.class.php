@@ -5,38 +5,81 @@ class opThemeEvent
 
   public static function enableTheme(sfEvent $event)
   {
-    if (self::isPrviewModule()) {
+    if (self::isPrviewModule())
+    {
       return false;
     }
 
     $themeInfo = new opThemeInfo();
-    $skinTheme = $themeInfo->findUseTehama();
+    $themeName = $themeInfo->findUseTehama();
+    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 
-    self::applyTheme($skinTheme);
+    if (!$themeLoader->existsAssetsByThemeName($themeName))
+    {
+      $themeName = $themeLoader->findSubstitutionTheme();
+    }
+
+    self::enableSkinByTheme($themeName);
   }
 
   public static function enablePreviewTheme(sfEvent $event)
   {
 
-    if (!self::isPrviewModule()) {
+    if (!self::isPrviewModule())
+    {
       return false;
     }
 
     $request = sfContext::getInstance()->getRequest();
-    $skinTheme = $request->getParameter('theme_name');
+    $themeName = $request->getParameter('theme_name');
 
-    self::applyTheme($skinTheme);
-  }
+    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 
-  private static function applyTheme($skinTheme)
-  {
-    $ThemeLoader = opThemeLoaderFactory::createLoaderInstance();
     $response = sfContext::getInstance()->getResponse();
-    $ThemeLoader->enableSkinByTheme($skinTheme, $response);
+
+    self::enableSkinByTheme($themeName);
   }
 
   private static function isPrviewModule()
   {
     return (sfContext::getInstance()->getModuleName() === 'skinpreview');
   }
+
+  public static function enableSkinByTheme($themeName)
+  {
+    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
+
+    $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, 'css');
+    self::includeCSSOrJS($filePaths, 'css');
+
+    $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, 'js');
+    self::includeCSSOrJS($filePaths, 'js');
+  }
+
+  /**
+   *
+   * @todo CSSとJS以外だったら例外を出す
+   */
+  private static function includeCSSOrJS($filePaths, $type)
+  {
+    $response = sfContext::getInstance()->getResponse();
+
+    if ($type === 'css')
+    {
+      foreach ($filePaths as $file)
+      {
+        $response->addStylesheet($file, 'last');
+      }
+    }
+
+    if ($type === 'js')
+    {
+      foreach ($filePaths as $file)
+      {
+        $response->addJavaScript($file, 'last');
+      }
+    }
+
+  }
+
 }
