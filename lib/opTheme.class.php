@@ -32,7 +32,7 @@ class opTheme
     $this->themeInfo = $this->loadInfoFile();
   }
 
-  //処理が大きすぎるので、クラスにした方がいいと思う
+  //処理が大きすぎるので、クラスにした方がいいと思う 移譲して
   private function loadInfoFile()
   {
     $infoPath = $this->loader->getThemePath().'/'.$this->name.'/css/main.css';
@@ -46,6 +46,10 @@ class opTheme
 
     $configLines = $this->clipConfigLines($fp);
 
+    if ($configLines === false) {
+      return false;
+    }
+    
     return $this->parseConfigLines($configLines);
   }
 
