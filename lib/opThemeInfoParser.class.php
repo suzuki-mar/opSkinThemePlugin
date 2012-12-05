@@ -1,6 +1,6 @@
 <?php
 
-class opThemeParser
+class opThemeInfoParser
 {
 
   /**

@@ -27,7 +27,7 @@ class opTheme
   {
     $this->name = $name;
 
-    $parser = new opThemeParser();
+    $parser = new opThemeInfoParser();
     $this->themeInfo = $parser->parseInfoFileByThemeName($this->name);
   }
 
