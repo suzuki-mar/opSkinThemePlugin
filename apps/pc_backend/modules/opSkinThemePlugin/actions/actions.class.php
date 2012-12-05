@@ -20,6 +20,22 @@ class opSkinThemePluginActions extends sfActions
     $loader = opThemeLoaderFactory::createLoaderInstance();
     $themes = $loader->loadThemeInsance();
 
+    $notInfoList = array();
+    foreach ($themes as $theme)
+    {
+      if (!$theme->existsInfoFile())
+      {
+        $notInfoList[] = $theme->getName();
+      }
+    }
+
+    if (!empty($notInfoList))
+    {
+      $this->notInfoThemeList = $notInfoList;
+    }
+
+    $this->isExistsErrorTheme = isset($this->notInfoThemeList);
+
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
     $this->form = new opThemeActivationForm(array(), array('themes' => $themes));
 
@@ -36,8 +52,6 @@ class opSkinThemePluginActions extends sfActions
         $this->getUser()->setFlash('error', $this->form->getErrorSchema()->getMessage());
       }
     }
-
-    
   }
 
 }

@@ -47,4 +47,8 @@ class opTheme
     return $this->themeInfo['summary'];
   }
 
+  public function existsInfoFile()
+  {
+    return ($this->themeInfo !== false);
+  }
 }
