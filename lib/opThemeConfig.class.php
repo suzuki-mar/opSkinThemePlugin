@@ -4,10 +4,14 @@ class opThemeConfig
 {
 
   /**
-   * @todo テーマがひとつも有効になっていない場合にエラーになる
+   * @todo メソッド名を修正する
    */
   public function findUseTehama()
   {
+    if ($this->_findThemeUsedInstance() === null) {
+      return null;
+    }
+
     return $this->_findThemeUsedInstance()->getValue();
   }
 

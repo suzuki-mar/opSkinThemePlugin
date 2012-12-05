@@ -43,8 +43,26 @@ class opThemeActivationForm extends sfForm
 
     $this->setValidator($this->themeFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
 
-    $ThemeInfo = new opThemeConfig();
-    $this->setDefault($this->themeFieldKey, $ThemeInfo->findUseTehama());
+    $themeInfo = new opThemeConfig();
+
+    if ($themeInfo->registeredUsedTheme())
+    {
+      $default = $themeInfo->findUseTehama();
+      
+    }
+    else
+    {
+      if (!empty($choices))
+      {
+        $default = array_shift($choices);
+      }
+      else
+      {
+        $default = null;
+      }
+    }
+
+    $this->setDefault($this->themeFieldKey, $default);
 
     $this->widgetSchema->setNameFormat('theme_activation[%s]');
   }

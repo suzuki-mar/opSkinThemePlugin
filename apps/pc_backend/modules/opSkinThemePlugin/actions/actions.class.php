@@ -48,6 +48,8 @@ class opSkinThemePluginActions extends sfActions
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
     $this->form = new opThemeActivationForm(array(), array('themes' => $this->themes));
 
+    
+
     if ($request->isMethod(sfRequest::POST))
     {
       $this->form->bind($this->request->getParameter('theme_activation'));

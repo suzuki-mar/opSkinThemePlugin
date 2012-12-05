@@ -5,12 +5,25 @@ class opThemeEvent
 
   public static function enableTheme(sfEvent $event)
   {
+    if (!self::isFrontend())
+    {
+      return false;
+    }
+
     if (self::isPrviewModule())
     {
       return false;
     }
 
     $themeInfo = new opThemeConfig();
+
+    //使用するテーマが登録されていない場合はテーマを読み込まない
+    if ($themeInfo->unRegisteredisTheme())
+    {
+      sfContext::getInstance()->getUser()->setFlash('error', 'テーマが登録されていません', false);
+      return false;
+    }
+
     $themeName = $themeInfo->findUseTehama();
     $themeLoader = opThemeLoaderFactory::createLoaderInstance();
 
@@ -24,6 +37,10 @@ class opThemeEvent
 
   public static function enablePreviewTheme(sfEvent $event)
   {
+    if (!self::isFrontend())
+    {
+      return false;
+    }
 
     if (!self::isPrviewModule())
     {
@@ -53,6 +70,12 @@ class opThemeEvent
     return (sfContext::getInstance()->getModuleName() === 'skinpreview');
   }
 
+  private static function isFrontend()
+  {
+    $application = sfContext::getInstance()->getConfiguration()->getApplication();
+    return ($application === 'pc_frontend');
+  }
+
   public static function enableSkinByTheme($themeName)
   {
     $themeLoader = opThemeLoaderFactory::createLoaderInstance();
@@ -61,6 +84,7 @@ class opThemeEvent
     foreach ($assetsType as $type)
     {
       $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, $type);
+
 
       if ($filePaths !== false)
       {
@@ -71,7 +95,6 @@ class opThemeEvent
   }
 
   /**
-   *
    * @todo CSSとJS以外だったら例外を出す
    */
   private static function includeCSSOrJS($filePaths, $type)
