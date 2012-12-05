@@ -11,33 +11,39 @@ class opSkinThemePluginActions extends sfActions
 {
 
   /**
+   * @var opThemeLoader
+   */
+  private $loader;
+  /**
+   * 登録してあるテーマ一覧
+   */
+  private $themes;
+
+  public function preExecute()
+  {
+    parent::preExecute();
+
+    $this->loader = opThemeLoaderFactory::createLoaderInstance();
+  }
+
+  /**
    * Executes index action
    *
    * @param sfWebRequest $request A request object
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $loader = opThemeLoaderFactory::createLoaderInstance();
-    $themes = $loader->loadThemeInsance();
+    $this->themes = $this->loader->loadThemeInsance();
 
-    $notInfoList = array();
-    foreach ($themes as $theme)
+    if ($this->existsNotInfoTheme())
     {
-      if (!$theme->existsInfoFile())
-      {
-        $notInfoList[] = $theme->getName();
-      }
-    }
-
-    if (!empty($notInfoList))
-    {
-      $this->notInfoThemeList = $notInfoList;
+      $this->notInfoThemeList = $this->findNotInfoThemeNames();
     }
 
     $this->isExistsErrorTheme = isset($this->notInfoThemeList);
 
     //既存のプラグインと同じフォームにするために、プラグイン設定画面のフォームを使用する
-    $this->form = new opThemeActivationForm(array(), array('themes' => $themes));
+    $this->form = new opThemeActivationForm(array(), array('themes' => $this->themes));
 
     if ($request->isMethod(sfRequest::POST))
     {
@@ -52,6 +58,33 @@ class opSkinThemePluginActions extends sfActions
         $this->getUser()->setFlash('error', $this->form->getErrorSchema()->getMessage());
       }
     }
+  }
+
+  private function existsNotInfoTheme()
+  {
+    foreach ($this->themes as $theme)
+    {
+      if (!$theme->existsInfoFile())
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private function findNotInfoThemeNames()
+  {
+    $notInfoList = array();
+    foreach ($this->themes as $theme)
+    {
+      if (!$theme->existsInfoFile())
+      {
+        $notInfoList[] = $theme->getName();
+      }
+    }
+
+    return $notInfoList;
   }
 
 }
