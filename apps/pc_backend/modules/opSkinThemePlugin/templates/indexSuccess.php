@@ -25,7 +25,7 @@
 <?php echo $form->renderFormTag(url_for('opSkinThemePlugin/index')); ?>
 <table>
 <tr>
-<th><?php echo __('有効/無効') ?></th>
+<th><?php echo __('選択') ?></th>
 <th><?php echo __('テーマ名') ?></th>
 <th><?php echo __('テーマのURI') ?></th>
 <th><?php echo __('制作者') ?></th>
