@@ -2,23 +2,13 @@
 
 class opThemeActivationForm extends sfForm
 {
-
-  protected
-  $themeFieldKey = 'theme';
+  const
+  THEME_FILED_KEY = 'theme';
 
   public function configure()
   {
-    $themes = $this->getOption('themes');
-
-    $choices = array();
-
-    foreach ($themes as $theme)
-    {
-      $choices[$theme->getThemeDirName()] = $theme->getThemeDirName();
-    }
-
     $widgetOptions = array(
-        'choices' => $choices,
+        'choices' => $this->findSelectThemes(),
         'multiple' => true,
         'expanded' => true,
         'renderer_options' => array(
@@ -27,10 +17,10 @@ class opThemeActivationForm extends sfForm
     );
 
     $widgetOptions['multiple'] = false;
-    $this->setWidget($this->themeFieldKey, new sfWidgetFormChoice($widgetOptions));
+    $this->setWidget(self::THEME_FILED_KEY, new sfWidgetFormChoice($widgetOptions));
 
     $validatorOptions = array(
-        'choices' => array_keys($choices),
+        'choices' => array_keys($this->findSelectThemes()),
         'multiple' => true,
         'required' => false,
     );
@@ -41,14 +31,34 @@ class opThemeActivationForm extends sfForm
     $validatorMessages = array();
     $validatorMessages['required'] = 'You must activate only a skin theme.';
 
-    $this->setValidator($this->themeFieldKey, new sfValidatorChoice($validatorOptions, $validatorMessages));
+    $this->setValidator(self::THEME_FILED_KEY, new sfValidatorChoice($validatorOptions, $validatorMessages));
 
+    $this->setDefault(self::THEME_FILED_KEY, $this->findDefaultThemeName());
+
+    $this->widgetSchema->setNameFormat('theme_activation[%s]');
+  }
+
+  private function findSelectThemes()
+  {
+    $themes = $this->getOption('themes');
+
+    $choices = array();
+
+    foreach ($themes as $theme)
+    {
+      $choices[$theme->getThemeDirName()] = $theme->getThemeDirName();
+    }
+
+    return $choices;
+  }
+
+  private function findDefaultThemeName()
+  {
     $themeInfo = new opThemeConfig();
 
     if ($themeInfo->registeredUsedTheme())
     {
       $default = $themeInfo->findUseTheme();
-      
     }
     else
     {
@@ -62,9 +72,7 @@ class opThemeActivationForm extends sfForm
       }
     }
 
-    $this->setDefault($this->themeFieldKey, $default);
-
-    $this->widgetSchema->setNameFormat('theme_activation[%s]');
+    return $default;
   }
 
   public function formatter($widget, $inputs)
@@ -75,7 +83,7 @@ class opThemeActivationForm extends sfForm
     }
 
     $themes = $this->getOption('themes');
-    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), $this->themeFieldKey)).'_';
+    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), self::THEME_FILED_KEY)).'_';
 
     $rows = array();
     foreach ($inputs as $id => $input)
@@ -98,20 +106,20 @@ class opThemeActivationForm extends sfForm
     $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
 
     $tagIds = array(
-        'theme_uri'  => 'theme_uri_'.$theme->getThemeName(),
-        'author'     => 'author_'.$theme->getThemeName(),
-        'version'    => 'version_'.$theme->getThemeName(),
-        'summery'    => 'summery_'.$theme->getThemeName(),
+        'theme_uri' => 'theme_uri_'.$theme->getThemeName(),
+        'author' => 'author_'.$theme->getThemeName(),
+        'version' => 'version_'.$theme->getThemeName(),
+        'summery' => 'summery_'.$theme->getThemeName(),
     );
 
     $rowContents = array(
-        'button'      => $input['input'],
-        'name'        => $input['label'],
-        'theme_uri'   => $theme->getThemeURI(),
-        'author'      => $theme->getAuthor(),
-        'version'     => $theme->getVersion(),
+        'button' => $input['input'],
+        'name' => $input['label'],
+        'theme_uri' => $theme->getThemeURI(),
+        'author' => $theme->getAuthor(),
+        'version' => $theme->getVersion(),
         'description' => $theme->getDescription(),
-        'link'        => $linkTag,
+        'link' => $linkTag,
     );
 
     $rowContentTag = '';
@@ -133,7 +141,7 @@ class opThemeActivationForm extends sfForm
       $newErrorSchema = new sfValidatorErrorSchema($this->validatorSchema);
       foreach ($this->errorSchema as $name => $error)
       {
-        if ($this->themeFieldKey === $name)
+        if (self::THEME_FILED_KEY === $name)
         {
           $newErrorSchema->addError($error);
         }
@@ -154,7 +162,7 @@ class opThemeActivationForm extends sfForm
       return false;
     }
 
-    $value = $this->values[$this->themeFieldKey];
+    $value = $this->values[self::THEME_FILED_KEY];
 
     $skinThemeInfo = new opThemeConfig();
 
