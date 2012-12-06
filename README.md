@@ -61,7 +61,7 @@ Version:[テーマのバージョン]
 1. プラグインのソースコードを以下のサイトからダウンロードして、pluginsディレクトリに設置してください
  * https://github.com/suzuki-mar/opSkinThemePlugin
 2. OpenPNEのトップディレクトリに移動してください
-3. 以下のコマンドを実行し、pSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
+3. 以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
  * ./symfony plugin:publish-assets
 
 更新履歴
