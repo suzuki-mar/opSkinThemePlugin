@@ -21,8 +21,8 @@ opSkinThemePlugin
 ### テーマの設置方法
 #### テーマディレクトリの作成
 plugins/opSkinThemePlugin/web 以下のディレクトリにテーマで使用するアセット(CSS,JavaScript,画像ファイル)がある
+  ディレクトリを作成してください。
 
-ディレクトリを作成してください。
 * CSSのファイルはcssディレクトリの中に作成してください
 * JavaScriptのファイルはjsディレクトリの中に作成してください
 
