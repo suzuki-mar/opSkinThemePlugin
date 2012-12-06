@@ -40,16 +40,22 @@ opSkinThemePlugin概要
 css/main.cssファイルに以下のコメントを追記してください。
 
 /*
+Theme Name:[テーマの名称]
+Theme URI:[テーマのURI]
+Description:[テーマの説明]
+Author:[テーマの制作者]
 Version:[テーマのバージョン]
-Theme URI:[テーマのURI]
-
-コメント
 */
 
  
 インストール方法
 ----------------
 
+pluginsディレクトリに設置してください。
+
+プラグインをインストールしたら、OpenPNEのトップディレクトリに移動して、
+以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください。
+./symfony plugin:publish-assets
 
 
 更新履歴
