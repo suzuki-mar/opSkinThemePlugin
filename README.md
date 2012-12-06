@@ -5,7 +5,7 @@ opSkinThemePlugin
 テーマ(アセット)を変更する事によって、スキンの変更をすることができる機能を追加します。
 
 ## スクリーンショット
-![SS](https://raw.github.com/suzuki-mar/opManagerSkinPlugin/master/doc/img/theme_setting.png)![SS](https://raw.github.com/suzuki-mar/opManagerSkinPlugin/master/doc/img/theme.png)
+![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme_setting.png)![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme.png)
 
 
 ## 使用方法
@@ -59,7 +59,7 @@ Version:[テーマのバージョン]
 インストール方法
 ----------------
 1. プラグインのソースコードを以下のサイトからダウンロードして、pluginsディレクトリに設置してください
- * https://github.com/suzuki-mar/opSkinManagerPlugin
+ * https://github.com/suzuki-mar/opSkinThemePlugin
 2. OpenPNEのトップディレクトリに移動してください
 3. 以下のコマンドを実行し、pSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
  * ./symfony plugin:publish-assets
@@ -71,4 +71,4 @@ Version:[テーマのバージョン]
 
 要望・フィードバック
 ----------
-https://github.com/suzuki-mar/opSkinManagerPlugin/isses
+https://github.com/suzuki-mar/opSkinThemePlugin/issues
