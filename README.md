@@ -5,7 +5,7 @@ opSkinThemePlugin概要
 スクリーンショット
 ------
 
-![SS](http://p.pne.jp/it/?w=200&h=150)![SS](http://p.pne.jp/it/?w=200&h=150)![SS](http://p.pne.jp/it/?w=200&h=150)![SS](http://p.pne.jp/it/?w=200&h=150)
+![SS](https://raw.github.com/suzuki-mar/opManagerSkinPlugin/master/doc/img/theme_setting.png)![SS](https://raw.github.com/suzuki-mar/opManagerSkinPlugin/master/doc/img/theme.png)
 
 
 使用方法
