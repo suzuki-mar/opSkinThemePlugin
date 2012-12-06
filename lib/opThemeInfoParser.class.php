@@ -3,8 +3,6 @@
 class opThemeInfoParser
 {
 
-  const CONFIG_COUNT = 5;
-
   /**
    * @var opThemeLoader
    */
@@ -133,8 +131,10 @@ class opThemeInfoParser
 
   private function isConfigLines(array $lines)
   {
+    $configCount = count($this->getConfigNames());
+
     //コメントブロックの先頭と終了分も追加する
-    if (count($lines) !== self::CONFIG_COUNT + 2)
+    if (count($lines) !== $configCount + 2)
     {
       return false;
     }
