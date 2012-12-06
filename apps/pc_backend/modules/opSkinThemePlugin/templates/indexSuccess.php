@@ -27,13 +27,15 @@
 <tr>
 <th><?php echo __('有効/無効') ?></th>
 <th><?php echo __('テーマ名') ?></th>
+<th><?php echo __('テーマのURI') ?></th>
+<th><?php echo __('制作者') ?></th>
 <th><?php echo __('バージョン') ?></th>
 <th><?php echo __('テーマの説明') ?></th>
 <th><?php echo __('プレビュー') ?></th>
 </tr>
 <?php echo $form['theme']->render() ?>
 <tr>
-<td colspan="5">
+<td colspan="8">
 <?php echo $form->renderHiddenFields() ?>
 <input type="submit" value="<?php echo __('設定変更') ?>" />
 </td>

@@ -102,7 +102,7 @@ class opSkinThemePluginActions extends sfActions
     {
       if (!$theme->existsInfoFile())
       {
-        $notInfoList[] = $theme->getName();
+        $notInfoList[] = $theme->getThemeDirName();
       }
     }
 

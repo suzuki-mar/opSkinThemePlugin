@@ -14,7 +14,7 @@ class opThemeActivationForm extends sfForm
 
     foreach ($themes as $theme)
     {
-      $choices[$theme->getName()] = $theme->getName();
+      $choices[$theme->getThemeDirName()] = $theme->getThemeDirName();
     }
 
     $widgetOptions = array(
@@ -91,23 +91,35 @@ class opThemeActivationForm extends sfForm
     return $rowString;
   }
 
-  private function createRowTag($widget, $input, $theme)
+  private function createRowTag($widget, $input, opTheme $theme)
   {
     //@todo 国際対応する
-    $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getName();
+    $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getThemeDirName();
     $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
 
     $tagIds = array(
-        'version' => 'version_'.$theme->getName(),
-        'summery' => 'summery_'.$theme->getName(),
+        'theme_uri'  => 'theme_uri_'.$theme->getThemeName(),
+        'author'     => 'author_'.$theme->getThemeName(),
+        'version'    => 'version_'.$theme->getThemeName(),
+        'summery'    => 'summery_'.$theme->getThemeName(),
     );
 
-    $rowContentTag =
-            $widget->renderContentTag('td', $input['input']).
-            $widget->renderContentTag('td', $input['label']).
-            $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getVersion()), array('id' => $tagIds['version'])).
-            $widget->renderContentTag('td', sfWidget::escapeOnce($theme->getSummary()), array('id' => $tagIds['summery'])).
-            $widget->renderContentTag('td', $linkTag);
+    $rowContents = array(
+        'button'      => $input['input'],
+        'name'        => $input['label'],
+        'theme_uri'   => $theme->getThemeURI(),
+        'author'      => $theme->getAuthor(),
+        'version'     => $theme->getVersion(),
+        'description' => $theme->getDescription(),
+        'link'        => $linkTag,
+    );
+
+    $rowContentTag = '';
+
+    foreach ($rowContents as $content)
+    {
+      $rowContentTag .= $widget->renderContentTag('td', $content);
+    }
 
     return $widget->renderContentTag('tr', $rowContentTag);
   }

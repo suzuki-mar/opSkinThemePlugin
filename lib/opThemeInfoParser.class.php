@@ -3,16 +3,29 @@
 class opThemeInfoParser
 {
 
+  const CONFIG_COUNT = 5;
+
   /**
    * @var opThemeLoader
    */
   private $loader;
-  
-  public function  __construct()
+
+  public function __construct()
   {
     $this->loader = opThemeLoaderFactory::createLoaderInstance();
   }
-  
+
+  private function getConfigNames()
+  {
+    return array(
+        'Theme Name',
+        'Theme URI',
+        'Description',
+        'Author',
+        'Version',
+    );
+  }
+
   //処理が大きすぎるので、クラスにした方がいいと思う 移譲して
   public function parseInfoFileByThemeName($themeName)
   {
@@ -89,25 +102,34 @@ class opThemeInfoParser
         if (strpos($line, $configNameFiled) !== false)
         {
           $value = str_replace($configNameFiled, '', $line);
+          $key = $this->toConfigKeyByConfigName($name);
 
-          $configName = strtolower($name);
-          $configs[$configName] = $value;
+          $configs[$key] = $value;
         }
       }
     }
 
-    //説明文は最後の行にある
-    $configs['summary'] = array_pop($configLines);
-
     return $configs;
   }
 
-  private function getConfigNames()
+  private function toConfigKeyByConfigName($configName)
   {
-    return array('Version');
-  }
+    $configKey = '';
 
-  const CONFIG_COUNT = 2;
+    $strs = preg_split("/[\s]+/", $configName, -1, PREG_SPLIT_NO_EMPTY);
+
+    foreach ($strs as $str)
+    {
+      //空白文字で区切るときに文字化けがおこってしまっているので、文字コードを変更して文字化けを修正する
+      //コンフィグ名はすべて英字なのでASCIIを指定してする
+      $str = mb_convert_encoding($str, 'ASCII');
+      $configKey .= strtolower($str).'_';
+    }
+
+    $configKey = substr($configKey, 0, -1);
+
+    return $configKey;
+  }
 
   private function isConfigLines(array $lines)
   {
@@ -127,16 +149,22 @@ class opThemeInfoParser
     //項目が全てない場合はエラーとする
     foreach ($this->getConfigNames() as $name)
     {
+      $exsitsConfig = false;
 
       foreach ($configLines as $line)
       {
         $configNameFiled = $name.':';
 
-        if (!strpos($line, $configNameFiled) === false)
+        if (strpos($line, $configNameFiled) !== false)
         {
-          return false;
+          $exsitsConfig = true;
         }
       }
+
+      if (!$exsitsConfig) {
+        return false;
+      }
+
     }
 
     return true;
