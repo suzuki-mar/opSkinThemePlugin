@@ -22,18 +22,18 @@
  * ファクトリークラスを作成した
  */
 
-class opThemeLoaderFactory
+class opThemeAssetSearchFactory
 {
   /**
    *
-   * @return opSkinThemeLoader
+   * @return opSkinThemeAssetSearch
    */
-  public static function createLoaderInstance()
+  public static function createSearchInstance()
   {
     $loaderParams = array();
     $loaderParams['web_path']   = sfConfig::get('sf_web_dir').'/opSkinThemePlugin';
     $loaderParams['theme_path'] = __DIR__.'/../../web';
 
-    return new opThemeLoader($loaderParams);
+    return new opThemeAssetSearch($loaderParams);
   }
 }

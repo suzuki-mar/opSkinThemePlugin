@@ -11,9 +11,9 @@ class opSkinThemePluginActions extends sfActions
 {
 
   /**
-   * @var opThemeLoader
+   * @var opThemeAssetSearch
    */
-  private $loader;
+  private $search;
 
   /**
    * @var opThemeConfig
@@ -29,7 +29,7 @@ class opSkinThemePluginActions extends sfActions
   {
     parent::preExecute();
 
-    $this->loader = opThemeLoaderFactory::createLoaderInstance();
+    $this->search = opThemeAssetSearchFactory::createSearchInstance();
     $this->config = new opThemeConfig();
   }
 
@@ -40,7 +40,7 @@ class opSkinThemePluginActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->themes = $this->loader->loadThemeInsance();
+    $this->themes = $this->search->loadThemeInsance();
     $this->useTheme = $this->config->findUseTheme();
 
     $this->checkThemeDirValidity();
@@ -70,7 +70,7 @@ class opSkinThemePluginActions extends sfActions
    */
   private function checkThemeDirValidity()
   {
-    $this->existsUseTheme = $this->loader->existsAssetsByThemeName($this->useTheme);
+    $this->existsUseTheme = $this->search->existsAssetsByThemeName($this->useTheme);
 
     if ($this->existsNotInfoTheme())
     {

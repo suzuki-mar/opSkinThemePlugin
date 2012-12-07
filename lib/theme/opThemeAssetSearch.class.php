@@ -16,7 +16,7 @@
 * @author suzuki_mar <supasu145@gmail.com>
 */
 
-class opThemeLoader extends opInstalledPluginManager
+class opThemeAssetSearch extends opInstalledPluginManager
 {
 
   private $webPath;

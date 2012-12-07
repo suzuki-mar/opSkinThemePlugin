@@ -41,11 +41,11 @@ class opThemeEvent
     }
 
     $themeName = $themeInfo->findUseTheme();
-    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
+    $themeSearch = opThemeAssetSearchFactory::createSearchInstance();
 
-    if (!$themeLoader->existsAssetsByThemeName($themeName))
+    if (!$themeSearch->existsAssetsByThemeName($themeName))
     {
-      $themeName = $themeLoader->findSubstitutionTheme();
+      $themeName = $themeSearch->findSubstitutionTheme();
     }
 
     self::enableSkinByTheme($themeName);
@@ -71,9 +71,9 @@ class opThemeEvent
       return false;
     }
 
-    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
+    $themeSearch = opThemeAssetSearchFactory::createSearchInstance();
 
-    if (!$themeLoader->existsAssetsByThemeName($themeName))
+    if (!$themeSearch->existsAssetsByThemeName($themeName))
     {
       return false;
     }
@@ -94,12 +94,12 @@ class opThemeEvent
 
   public static function enableSkinByTheme($themeName)
   {
-    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
+    $themeSearch = opThemeAssetSearchFactory::createSearchInstance();
 
     $assetsType = array('css', 'js');
     foreach ($assetsType as $type)
     {
-      $filePaths = $themeLoader->findAssetsPathByThemeNameAndType($themeName, $type);
+      $filePaths = $themeSearch->findAssetsPathByThemeNameAndType($themeName, $type);
 
 
       if ($filePaths !== false)

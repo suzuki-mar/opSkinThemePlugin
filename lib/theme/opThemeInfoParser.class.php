@@ -24,13 +24,13 @@ class opThemeInfoParser
 {
 
   /**
-   * @var opThemeLoader
+   * @var opThemeAssetSearch
    */
-  private $loader;
+  private $search;
 
   public function __construct()
   {
-    $this->loader = opThemeLoaderFactory::createLoaderInstance();
+    $this->search = opThemeAssetSearchFactory::createSearchInstance();
   }
 
   private function getConfigNames()
@@ -47,7 +47,7 @@ class opThemeInfoParser
   //処理が大きすぎるので、クラスにした方がいいと思う 移譲して
   public function parseInfoFileByThemeName($themeName)
   {
-    $infoPath = $this->loader->getThemePath().'/'.$themeName.'/css/main.css';
+    $infoPath = $this->search->getThemePath().'/'.$themeName.'/css/main.css';
     $fp = fopen($infoPath, 'r');
 
     if (!$fp)

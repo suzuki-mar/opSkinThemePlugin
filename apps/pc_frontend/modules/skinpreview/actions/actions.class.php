@@ -17,7 +17,7 @@ class skinpreviewActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $themeLoader = opThemeLoaderFactory::createLoaderInstance();
+    $themeSearch = opThemeAssetSearchFactory::createSearchInstance();
 
     $this->themeName = $this->getRequest()->getParameterHolder()->get('theme_name');
 
