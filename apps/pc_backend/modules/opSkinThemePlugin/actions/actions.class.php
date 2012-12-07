@@ -51,6 +51,7 @@ class opSkinThemePluginActions extends sfActions
   {
     $this->themes = $this->search->loadThemeInsance();
     $this->useTheme = $this->config->findUseTheme();
+    $this->unRegisterUseTheme = $this->config->unRegisteredisTheme();
 
     $this->checkThemeDirValidity();
     
@@ -79,7 +80,15 @@ class opSkinThemePluginActions extends sfActions
    */
   private function checkThemeDirValidity()
   {
-    $this->existsUseTheme = $this->search->existsAssetsByThemeName($this->useTheme);
+    //まだテーマを選択していない場合はエラーチェックをしない
+    if ($this->config->unRegisteredisTheme()) {
+      //そもそも使用するテーマがないので存在するものとして扱う
+      $this->existsUseTheme = true;
+    }
+    else
+    {
+      $this->existsUseTheme = $this->search->existsAssetsByThemeName($this->useTheme);
+    }
 
     if ($this->existsNotInfoTheme())
     {

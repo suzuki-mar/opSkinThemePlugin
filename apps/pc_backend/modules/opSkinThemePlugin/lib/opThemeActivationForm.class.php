@@ -78,9 +78,9 @@ class opThemeActivationForm extends sfForm
     }
     else
     {
-      if (!empty($choices))
+      if ($this->emptySelectTheme())
       {
-        $default = array_shift($choices);
+        $default = array_shift($this->findSelectThemes());
       }
       else
       {
@@ -89,6 +89,12 @@ class opThemeActivationForm extends sfForm
     }
 
     return $default;
+  }
+
+  private function emptySelectTheme()
+  {
+    $selectThemes = $this->findSelectThemes();
+    return !(empty($selectThemes));
   }
 
   public function formatter($widget, $inputs)

@@ -3,7 +3,7 @@
 <?php if ($isExistsErrorTheme): ?>
   <h3><?php echo __('テーマのエラー情報') ?></h3>
 
-  <?php if (!$existsUseTheme): ?>
+  <?php if (!$unRegisterUseTheme && !$existsUseTheme): ?>
     <p><?php echo '使用しているテーマの'.$useTheme.'が公開ディレクトリにありません' ?></p>
     <?php if (isset($notInfoThemeList)): //行詰めで表示されてしまうので改行する?>
       <br />
