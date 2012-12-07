@@ -336,7 +336,7 @@ pre {
  *--------------------------------------------*/
 #Container {
   min-width: 975px;
-  background: #FFFFFF;
+  background: #2A3333;
 }
 
 #Contents {
@@ -831,7 +831,7 @@ background: #FFFFFF;
  * Contents
  *--------------------------------------------*/
 #Contents {
-  background: #FFFFFF;
+  background: #2A3333;
 }
 
 /*----------------------------------------------
@@ -882,8 +882,8 @@ div.partsHeading {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background-color: #dd4814;
-  border: 1px solid #dd4814;
+  background-color: #3A87AD;
+  border: 1px solid #3A87AD;
   -webkit-border-radius: 3px; 
   -moz-border-radius: 3px; 
   border-radius: 3px; 
@@ -911,6 +911,7 @@ div.partsHeading a {
 }
 
 div.partsHeading h3 {
+  color: #ffffff;
   display: inline;
   font-weight: bold;
 }
@@ -1106,7 +1107,7 @@ div.operation ul.moreInfo li {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background-color: #E0D9CB;
+  background-color: #45515F;
 }
 
 .informationBox div.body {
@@ -1243,7 +1244,8 @@ div.operation ul.moreInfo li {
 /*==============================================================================
  * listBox
  *----------------------------------------------------------------------------*/
-.listBox th {
+.listBox th,
+.listBox td{
   width: 83px;
   background-color: #FFFFFF;
 }
@@ -1272,7 +1274,7 @@ div.operation ul.moreInfo li {
 .memberImageBox {
   margin-bottom: 10px;
   padding: 7px;
-  background-color: #EFEFEF;
+  background-color: #45515F;
   border: 1px solid #eee;
   border: 1px solid rgba(0, 0, 0, 0.05);
   -webkit-border-radius: 4px;
