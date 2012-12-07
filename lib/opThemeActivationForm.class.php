@@ -106,7 +106,6 @@ class opThemeActivationForm extends sfForm
     $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
 
     $tagIds = array(
-        'theme_uri' => 'theme_uri_'.$theme->getThemeName(),
         'author' => 'author_'.$theme->getThemeName(),
         'version' => 'version_'.$theme->getThemeName(),
         'summery' => 'summery_'.$theme->getThemeName(),
@@ -115,8 +114,7 @@ class opThemeActivationForm extends sfForm
     $rowContents = array(
         'button' => $input['input'],
         'name' => $input['label'],
-        'theme_uri' => $theme->getThemeURI(),
-        'author' => $theme->getAuthor(),
+        'author' => '<a href="'.$theme->getThemeURI().'">'.$theme->getAuthor().'</a>',
         'version' => $theme->getVersion(),
         'description' => $theme->getDescription(),
         'link' => $linkTag,

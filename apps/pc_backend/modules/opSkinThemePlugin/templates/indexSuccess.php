@@ -27,7 +27,6 @@
 <tr>
 <th><?php echo __('選択') ?></th>
 <th><?php echo __('テーマ名') ?></th>
-<th><?php echo __('テーマのURI') ?></th>
 <th><?php echo __('制作者') ?></th>
 <th><?php echo __('バージョン') ?></th>
 <th><?php echo __('テーマの説明') ?></th>
@@ -35,7 +34,7 @@
 </tr>
 <?php echo $form['theme']->render() ?>
 <tr>
-<td colspan="8">
+<td colspan="7">
 <?php echo $form->renderHiddenFields() ?>
 <input type="submit" value="<?php echo __('設定変更') ?>" />
 </td>
