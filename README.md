@@ -7,6 +7,12 @@ opSkinThemePlugin
 ## スクリーンショット
 ![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme_setting.png)![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme.png)
 
+## インストール方法
+1. プラグインのソースコードを以下のサイトからダウンロードして、pluginsディレクトリに設置してください
+ * https://github.com/suzuki-mar/opSkinThemePlugin
+2. OpenPNEのトップディレクトリに移動してください 
+3. 以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
+ * ./symfony plugin:publish-assets
 
 ## 使用方法
 
@@ -56,13 +62,6 @@ Version:[テーマのバージョン]
 ```
 
 
-インストール方法
-----------------
-1. プラグインのソースコードを以下のサイトからダウンロードして、pluginsディレクトリに設置してください
- * https://github.com/suzuki-mar/opSkinThemePlugin
-2. OpenPNEのトップディレクトリに移動してください 
-3. 以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
- * ./symfony plugin:publish-assets
 
 更新履歴
 --------
