@@ -2437,7 +2437,8 @@ button.btn.small, input[type="submit"].btn.small {
   overflow: visible;
   margin-bottom: 18px;
 }
-.navbar-inner {
+.navbar-inner,
+#Footer {
   padding-left: 20px;
   padding-right: 20px;
   background-color: #50a8dc;
@@ -2521,7 +2522,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 
 .brand > a {
-  color: #3366ff;
+  color: #eeeeee;
 }
 
 .navbar .navbar-text {
@@ -3516,7 +3517,8 @@ h5,
 h6 {
   color: #317eac;
 }
-.navbar-inner {
+.navbar-inner,
+#Footer {
   background-color: #3f9fd9;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#369bd7), color-stop(90%, #369bd7), to(#61b0df));
   background-image: -webkit-linear-gradient(#369bd7, #369bd7 90%, #61b0df);
