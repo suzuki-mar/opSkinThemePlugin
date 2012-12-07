@@ -1,5 +1,25 @@
 <?php
 
+/**
+* This file is part of the OpenPNE package.
+* (c) OpenPNE Project (http://www.openpne.jp/)
+*
+* For the full copyright and license information, please view the LICENSE
+* file and the NOTICE file that were distributed with this source code.
+*/
+
+/**
+* 設定ファイルを読み込んでテーマ情報をパースするクラス
+*
+* @package OpenPNE
+* @subpackage theme
+* @author suzuki_mar <supasu145@gmail.com>
+*/
+
+/**
+ * 設定ファイルを読み込む処理は複雑なので、クラスを作成した
+ */
+
 class opThemeInfoParser
 {
 

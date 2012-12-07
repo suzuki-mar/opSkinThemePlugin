@@ -1,13 +1,20 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file and the NOTICE file that were distributed with this source code.
- */
-error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
+* This file is part of the OpenPNE package.
+* (c) OpenPNE Project (http://www.openpne.jp/)
+*
+* For the full copyright and license information, please view the LICENSE
+* file and the NOTICE file that were distributed with this source code.
+*/
+
+/**
+* テーマのアセットファイルを検索する
+*
+* @package OpenPNE
+* @subpackage theme
+* @author suzuki_mar <supasu145@gmail.com>
+*/
 
 class opThemeLoader extends opInstalledPluginManager
 {
