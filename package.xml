@@ -14,10 +14,10 @@
   <active>yes</active>
  </lead>
  <date>2012-12-10</date>
- <time>10:53:53</time>
+ <time>16:17:10</time>
  <version>
-  <release>1.0BETA</release>
-  <api>1.0BETA</api>
+  <release>1.0.0</release>
+  <api>1.0.0</api>
  </version>
  <stability>
   <release>beta</release>
@@ -174,6 +174,7 @@ beta release
    <file baseinstalldir="/" md5sum="11118ae8db796d41dd11482067c89d01" name="web/united/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="web/united/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="web/united/js/bootstrap-dropdown.js" role="data" />
+   <file baseinstalldir="/" md5sum="d1eb6b6723ed178f297879c60342192a" name="dependencies.yml" role="data" />
    <file baseinstalldir="/" md5sum="283bbb1edfd32b7cc91f1708089ec717" name="README.md" role="data" />
   </dir>
  </contents>
@@ -185,6 +186,11 @@ beta release
    <pearinstaller>
     <min>1.4.0</min>
    </pearinstaller>
+   <package>
+    <name>openpne</name>
+    <channel>plugins.openpne.jp</channel>
+    <min>3.6</min>
+   </package>
   </required>
  </dependencies>
  <phprelease />
@@ -208,6 +214,21 @@ alpha release.
    <version>
     <release>1.0BETA</release>
     <api>1.0BETA</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-12-10</date>
+   <license>Apache</license>
+   <notes>
+beta release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
    </version>
    <stability>
     <release>beta</release>
