@@ -23,7 +23,7 @@ opSkinThemePlugin
 ### 使用するテーマを選択する
 スキンテーマを有効にした後に、スキンプラグイン設定画面からopSkinThemePluginの設定画面にアクセスします。  
   opSkinThemePluginの設定画面から、使用するテーマを選択してください。       
-  テーマの作成方法については次のページを参照ください。[テーマの作成方法について](https://github.com/suzuki-mar/opSkinThemePlugin/edit/master/doc/how_to_make_theme.md)
+  テーマの作成方法については次のページを参照ください。[テーマの作成方法について](https://github.com/suzuki-mar/opSkinThemePlugin/blob/master/doc/how_to_make_theme.md)
 
 
 更新履歴
