@@ -35,5 +35,5 @@ opSkinThemePlugin
 
 要望・フィードバック
 ----------
-要望・フィードバックは #opSkinThemePlugin のハッシュタグをつけてつぶやいてください。
+要望・フィードバックは #opSkinThemePlugin のハッシュタグをつけてつぶやいてください。             
   GitHubのアカウントを持っている人は [issues](https://github.com/suzuki-mar/opSkinThemePlugin/issues)にチケットを作成してください。
