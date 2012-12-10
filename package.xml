@@ -14,7 +14,7 @@
   <active>yes</active>
  </lead>
  <date>2012-12-10</date>
- <time>16:17:10</time>
+ <time>16:37:23</time>
  <version>
   <release>1.0.0</release>
   <api>1.0.0</api>
@@ -174,7 +174,7 @@ beta release
    <file baseinstalldir="/" md5sum="11118ae8db796d41dd11482067c89d01" name="web/united/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="web/united/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="web/united/js/bootstrap-dropdown.js" role="data" />
-   <file baseinstalldir="/" md5sum="d1eb6b6723ed178f297879c60342192a" name="dependencies.yml" role="data" />
+   <file baseinstalldir="/" md5sum="4fe408ce7dc9ee70a6461a747a5019bb" name="dependencies.yml" role="data" />
    <file baseinstalldir="/" md5sum="283bbb1edfd32b7cc91f1708089ec717" name="README.md" role="data" />
   </dir>
  </contents>
@@ -222,7 +222,7 @@ alpha release.
    <date>2012-12-10</date>
    <license>Apache</license>
    <notes>
-beta release.
+beta release
    </notes>
   </release>
   <release>

@@ -19,4 +19,4 @@ php:
 package:
   openpne: # The dependency with OpenPNE. (OpenPNE との依存性)
     channel: plugins.openpne.jp
-    min: "3.5.2dev"
+    min: 3.6
