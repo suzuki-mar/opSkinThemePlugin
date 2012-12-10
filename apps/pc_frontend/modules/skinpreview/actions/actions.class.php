@@ -30,7 +30,7 @@ class skinpreviewActions extends sfActions
 
     $this->themeName = $this->getRequest()->getParameterHolder()->get('theme_name');
 
-    $this->isExistsTheme = $themeLoader->existsAssetsByThemeName($this->themeName);
+    $this->isExistsTheme = $themeSearch->existsAssetsByThemeName($this->themeName);
 
     $this->emptyThemeName = ($this->themeName === null);
   }
