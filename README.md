@@ -5,7 +5,12 @@ opSkinThemePlugin
 テーマ(アセット)を変更する事によって、スキンの変更をすることができる機能を追加します。
 
 ## スクリーンショット
-![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme_setting.png)![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme.png)
+### 設定フォーム
+![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/setting.png)
+### サンプルテーマ
+![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/united.png) ![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/cerulean.png)
+![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/theme_setting.png)
+
 
 ## インストール方法
 1. プラグインのソースコードを以下のサイトからダウンロードして、pluginsディレクトリに設置してください
