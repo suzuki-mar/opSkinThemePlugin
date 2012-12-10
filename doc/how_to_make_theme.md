@@ -4,6 +4,7 @@
 ## テーマディレクトリの作成
 plugins/opSkinThemePlugin/web 以下のディレクトリにテーマで使用するファイル(CSS,JavaScript,画像ファイル)がある
   ディレクトリを作成してください。
+  ディレクトリの名前はテーマのディレクトリにしてください。
 * CSSのファイルはcssディレクトリの中に作成してください
 * JavaScriptのファイルはjsディレクトリの中に作成してください
 
@@ -14,7 +15,7 @@ plugins/opSkinThemePlugin/web 以下のディレクトリにテーマで使用�
 ## テーマディレクトリのサンプルレイアウト構成
 ```
 plugins/opSkinManager/web
-└── sample
+└── theme_name ← 作成されるテーマの名前にしてください。
     ├── css
     │   ├── bootstrap.css
     │   └── main.css ← このファイルは必ず作成してください。また、テーマの情報はこのファイルに記述してください。
