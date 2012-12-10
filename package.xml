@@ -13,11 +13,17 @@
   <email />
   <active>yes</active>
  </lead>
+ <lead>
+  <name>手嶋守</name>
+  <user>tejima</user>
+  <email />
+  <active>yes</active>
+ </lead>
  <date>2012-12-10</date>
- <time>16:37:23</time>
+ <time>19:39:54</time>
  <version>
-  <release>1.0.0</release>
-  <api>1.0.0</api>
+  <release>0.9</release>
+  <api>0.9</api>
  </version>
  <stability>
   <release>beta</release>
@@ -25,7 +31,7 @@
  </stability>
  <license>Apache</license>
  <notes>
-beta release
+NONE
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -39,8 +45,10 @@ beta release
    <file baseinstalldir="/" md5sum="7f1601fead2174ec5069af6614f7fc2a" name="apps/pc_frontend/templates/_header.php" role="data" />
    <file baseinstalldir="/" md5sum="41b065011a8961ba29f4846386b68f49" name="apps/pc_frontend/templates/_layout.php" role="data" />
    <file baseinstalldir="/" md5sum="c04ce99efe864873ac6781cc1252b699" name="config/config.php" role="data" />
-   <file baseinstalldir="/" md5sum="49696bd21e53cab2eea37dd5fdaff466" name="doc/img/theme.png" role="data" />
-   <file baseinstalldir="/" md5sum="423ff4da7a5d5f7224af9ac2dda01a21" name="doc/img/theme_setting.png" role="data" />
+   <file baseinstalldir="/" md5sum="64ae24d14c86d45be64e90b17b6a9e66" name="doc/how_to_make_theme.md" role="data" />
+   <file baseinstalldir="/" md5sum="9081f517b6a42fa3997f56b09cb95814" name="doc/img/cerulean.png" role="data" />
+   <file baseinstalldir="/" md5sum="cfe3916ef4eef91a52be04f4d5f2f19f" name="doc/img/setting.png" role="data" />
+   <file baseinstalldir="/" md5sum="140fa80cde66fb18353bee18b2283f24" name="doc/img/united.png" role="data" />
    <file baseinstalldir="/" md5sum="fba1e823799e23941d085a5bd47598b5" name="lib/event/opThemeEvent.class.php" role="data" />
    <file baseinstalldir="/" md5sum="a17c8c2c2accf952a2cba0d4d545c924" name="lib/theme/opTheme.class.php" role="data" />
    <file baseinstalldir="/" md5sum="d60e3c057c66042768c6bd10e9d8c19d" name="lib/theme/opThemeAssetSearch.class.php" role="data" />
@@ -54,36 +62,6 @@ beta release
    <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
    <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
    <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
-   <file baseinstalldir="/" md5sum="82bad69c171bdc4b863b2c7b96b942c3" name="test/united/css/bootstrap.css" role="data" />
-   <file baseinstalldir="/" md5sum="b3b1a5b135873dd689d9752c55788a8e" name="test/united/css/main.css" role="data" />
-   <file baseinstalldir="/" md5sum="23ec1042080aef8623ce446f8f422d01" name="test/united/images/articleList_marker.gif" role="data" />
-   <file baseinstalldir="/" md5sum="fe3b5933143e2ebd9db2e51e14c501ad" name="test/united/images/bg_button.gif" role="data" />
-   <file baseinstalldir="/" md5sum="5eefad6da459f3239cadb257bc21e88c" name="test/united/images/bg_button_a.gif" role="data" />
-   <file baseinstalldir="/" md5sum="3f312828a1998dff76fab663b6a92f74" name="test/united/images/bg_contents.gif" role="data" />
-   <file baseinstalldir="/" md5sum="44a8b2fe5841ba91660d58413bcf1f32" name="test/united/images/bg_footer.gif" role="data" />
-   <file baseinstalldir="/" md5sum="91285acc7beec88c5aede8bccf135460" name="test/united/images/bg_globalnav_hover.gif" role="data" />
-   <file baseinstalldir="/" md5sum="b09bce5a5c70a01ec429f2dc69065f7f" name="test/united/images/bg_header.gif" role="data" />
-   <file baseinstalldir="/" md5sum="5a134eab6bf42e481f7ae8ecc8b2dc73" name="test/united/images/bg_localnav_community.gif" role="data" />
-   <file baseinstalldir="/" md5sum="7088fd9c6906207e366cfa327756b794" name="test/united/images/bg_localnav_community_hover.gif" role="data" />
-   <file baseinstalldir="/" md5sum="6ee4730abd58f4c8386efb798b57ed2c" name="test/united/images/bg_localnav_default.gif" role="data" />
-   <file baseinstalldir="/" md5sum="00287e9ece4038c13be3497d745209b1" name="test/united/images/bg_localnav_default_hover.gif" role="data" />
-   <file baseinstalldir="/" md5sum="904c192732299411291d490e35e58db7" name="test/united/images/bg_localnav_friend.gif" role="data" />
-   <file baseinstalldir="/" md5sum="9356225ec7d00a2b8a09790482804bca" name="test/united/images/bg_localnav_friend_hover.gif" role="data" />
-   <file baseinstalldir="/" md5sum="562e99c7d47171ac7f66761c126a2a1b" name="test/united/images/bg_parts_heading_175.gif" role="data" />
-   <file baseinstalldir="/" md5sum="5f84c157b04e59c23c85393aac6f481e" name="test/united/images/bg_parts_heading_270.gif" role="data" />
-   <file baseinstalldir="/" md5sum="e1e0d15d78c0805ab964f17bc0b1790c" name="test/united/images/bg_parts_heading_440.gif" role="data" />
-   <file baseinstalldir="/" md5sum="7c4743c946d5c1ed299797826a836661" name="test/united/images/bg_parts_heading_540.gif" role="data" />
-   <file baseinstalldir="/" md5sum="702ffed28dd55b51e9a2ce9c4a84dd57" name="test/united/images/bg_parts_heading_650.gif" role="data" />
-   <file baseinstalldir="/" md5sum="a17051d19a539dddf8c3c63ed9fb375b" name="test/united/images/bg_parts_heading_720.gif" role="data" />
-   <file baseinstalldir="/" md5sum="26546f759370c8e9fe8ccc919345f206" name="test/united/images/bg_parts_photo_box.gif" role="data" />
-   <file baseinstalldir="/" md5sum="0c275a776f5c2c7bfadf3304982d8ddc" name="test/united/images/icon_1.gif" role="data" />
-   <file baseinstalldir="/" md5sum="bfbc70a55b4452943c376842e9cb0a35" name="test/united/images/icon_arrow_1.gif" role="data" />
-   <file baseinstalldir="/" md5sum="0d4d24af678e2a46d97fad6d4912e0ab" name="test/united/images/icon_arrow_2.gif" role="data" />
-   <file baseinstalldir="/" md5sum="8fb6dfeea0b7c3e731515ace58aa4103" name="test/united/images/icon_information.gif" role="data" />
-   <file baseinstalldir="/" md5sum="d83b5e3bb500ed36a4c1e69bc8a5a408" name="test/united/images/skin_header_logo.jpg" role="data" />
-   <file baseinstalldir="/" md5sum="11118ae8db796d41dd11482067c89d01" name="test/united/img/glyphicons-halflings-white.png" role="data" />
-   <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="test/united/img/glyphicons-halflings.png" role="data" />
-   <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="test/united/js/bootstrap-dropdown.js" role="data" />
    <file baseinstalldir="/" md5sum="67433c2d6eff54d7795d132c4678f834" name="web/cerulean/css/bootstrap.css" role="data" />
    <file baseinstalldir="/" md5sum="5615a3dd238fd18729a3bb7c126704d5" name="web/cerulean/css/main.css" role="data" />
    <file baseinstalldir="/" md5sum="23ec1042080aef8623ce446f8f422d01" name="web/cerulean/images/articleList_marker.gif" role="data" />
@@ -175,7 +153,7 @@ beta release
    <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="web/united/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="web/united/js/bootstrap-dropdown.js" role="data" />
    <file baseinstalldir="/" md5sum="4fe408ce7dc9ee70a6461a747a5019bb" name="dependencies.yml" role="data" />
-   <file baseinstalldir="/" md5sum="283bbb1edfd32b7cc91f1708089ec717" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="a1134a33412d0ba748051403ab9ecaa1" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -197,47 +175,32 @@ beta release
  <changelog>
   <release>
    <version>
-    <release>0.7.0</release>
-    <api>0.7.0</api>
+    <release>0.9</release>
+    <api>0.9</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-12-10</date>
+   <license>Apache</license>
+   <notes>
+NONE
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
    </version>
    <stability>
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2012-12-07</date>
-   <license>Apache</license>
-   <notes>
-alpha release.
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>1.0BETA</release>
-    <api>1.0BETA</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
    <date>2012-12-10</date>
    <license>Apache</license>
    <notes>
-beta release
-   </notes>
-  </release>
-  <release>
-   <version>
-    <release>1.0.0</release>
-    <api>1.0.0</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>beta</api>
-   </stability>
-   <date>2012-12-10</date>
-   <license>Apache</license>
-   <notes>
-beta release
+alpha release
    </notes>
   </release>
  </changelog>
