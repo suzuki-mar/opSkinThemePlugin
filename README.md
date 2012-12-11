@@ -12,7 +12,7 @@ opSkinThemePlugin
 
 ## インストール方法
 1. 以下のコマンドを実行して、プラグインをインストールしてください。
- * ./symfony opPlugin:install opSkinThemePlugin -r 1.0.0
+ * ./symfony opPlugin:install opSkinThemePlugin -r 0.9.0
 2. 以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
  * ./symfony plugin:publish-assets
 
