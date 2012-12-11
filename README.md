@@ -28,12 +28,14 @@ opSkinThemePlugin
   [テーマの作成方法について](https://github.com/suzuki-mar/opSkinThemePlugin/blob/master/doc/how_to_make_theme.md)
 
 
-更新履歴
---------
+## 更新履歴
+### 0.9 alpha
+* テーマを選択して、スキンを変更することができるようにした
+* 簡易テーマプレビュー機能の追加
+* サンプルテーマの作成 (cerulean, superhero, united)
 
 
 
-要望・フィードバック
-----------
+## 要望・フィードバック
 要望・フィードバックは #opSkinThemePlugin のハッシュタグをつけてつぶやいてください。             
   GitHubのアカウントを持っている人は [issues](https://github.com/suzuki-mar/opSkinThemePlugin/issues)にチケットを作成してください。
