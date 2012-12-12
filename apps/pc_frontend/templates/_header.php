@@ -24,9 +24,9 @@
       <div class="push_content">
       {{if category=="link"}}
         {{if unread==false}}
-        <?php echo __('Friend request') ?>
+        <?php echo __('%Friend% link request') ?>
         {{else}}
-        <?php echo __('Do you accept friend request?') ?>
+        <?php echo __('Do you accept %friend% link request?') ?>
         <div class="push_yesno">
           <button class="friend-accept">YES</button>
           <button class="friend-reject">NO</button>
@@ -55,7 +55,7 @@
 
 <?php endif ?>
 
-<ul class="nav">
+<ul class="nav" id="newLocalNav">
 <?php
 $context = sfContext::getInstance();
 $module = $context->getActionStack()->getLastEntry()->getModuleName();
@@ -72,17 +72,19 @@ include_component('default', 'localNav', $localNavOptions);
 ?>
 </ul>
 
-<ul class="nav pull-right">
+
+
+<div id="globalNav">
+<ul class="nav pull-right" >
 <?php
 $globalNavOptions = array(
   'type'      => opToolkit::isSecurePage() ? 'secure_global' : 'insecure_global',
   'culture'   => sfContext::getInstance()->getUser()->getCulture(),
-  'memberName' => sfContext::getInstance()->getUser()->getMember()->getName(), 
 );
 include_component('default', 'globalNav', $globalNavOptions);
 ?>
-
 </ul>
+</div><!-- globalNav -->
 
 <div id="topBanner">
 <?php if ($sf_user->isSNSMember()): ?>
