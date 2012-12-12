@@ -1856,3 +1856,10 @@ span.op_color {
         color: inherit;
         font-size: inherit;
 }
+
+
+/*古いデザインのタグは表示しないようにする*/
+#oldLocalNavContents,
+#oldGlobalNav {
+  display: none;
+}
