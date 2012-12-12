@@ -19,11 +19,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2012-12-11</date>
- <time>11:21:39</time>
+ <date>2012-12-12</date>
+ <time>11:24:34</time>
  <version>
-  <release>0.9.0</release>
-  <api>0.9.0</api>
+  <release>0.9.1</release>
+  <api>0.9.1</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -31,19 +31,19 @@
  </stability>
  <license>Apache</license>
  <notes>
-alpha release.
+標準スキンへの対応
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="3492a6b42dcc83ba2d3fbb23b360f0e2" name="apps/pc_backend/modules/opSkinThemePlugin/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="b2cc677d230d2a253236b34b6422d452" name="apps/pc_backend/modules/opSkinThemePlugin/lib/opThemeActivationForm.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c302428f12ddc09d6df18560cc88f2eb" name="apps/pc_backend/modules/opSkinThemePlugin/templates/indexSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="d5f0ffa4872a9b2c5d27660cf1889398" name="apps/pc_frontend/modules/default/templates/_globalNav.php" role="data" />
-   <file baseinstalldir="/" md5sum="390c2d6609a61f5ebf45dc48520d9341" name="apps/pc_frontend/modules/default/templates/_localNav.php" role="data" />
+   <file baseinstalldir="/" md5sum="4e210767b620be14dd7d4759c9e8b452" name="apps/pc_frontend/modules/default/templates/_globalNav.php" role="data" />
+   <file baseinstalldir="/" md5sum="b366b3e40098c0351541f3712d94c765" name="apps/pc_frontend/modules/default/templates/_localNav.php" role="data" />
    <file baseinstalldir="/" md5sum="07bb8a2db80825a6d548dc23725c872d" name="apps/pc_frontend/modules/skinpreview/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c1a103c6b5777cb1b5e0a06a5092a006" name="apps/pc_frontend/modules/skinpreview/templates/indexSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="7f1601fead2174ec5069af6614f7fc2a" name="apps/pc_frontend/templates/_header.php" role="data" />
-   <file baseinstalldir="/" md5sum="41b065011a8961ba29f4846386b68f49" name="apps/pc_frontend/templates/_layout.php" role="data" />
+   <file baseinstalldir="/" md5sum="30b2e281db9dde74c6d441e09e6e08be" name="apps/pc_frontend/templates/_header.php" role="data" />
+   <file baseinstalldir="/" md5sum="30f6a4c8d7bb208e7d510ec9c4d8033d" name="apps/pc_frontend/templates/_layout.php" role="data" />
    <file baseinstalldir="/" md5sum="c04ce99efe864873ac6781cc1252b699" name="config/config.php" role="data" />
    <file baseinstalldir="/" md5sum="64ae24d14c86d45be64e90b17b6a9e66" name="doc/how_to_make_theme.md" role="data" />
    <file baseinstalldir="/" md5sum="9081f517b6a42fa3997f56b09cb95814" name="doc/img/cerulean.png" role="data" />
@@ -62,8 +62,34 @@ alpha release.
    <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
    <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
    <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="96018773897d15af4345c351cc04b7ce" name="web/basic/css/main.css" role="data" />
+   <file baseinstalldir="/" md5sum="23ec1042080aef8623ce446f8f422d01" name="web/basic/images/articleList_marker.gif" role="data" />
+   <file baseinstalldir="/" md5sum="fe3b5933143e2ebd9db2e51e14c501ad" name="web/basic/images/bg_button.gif" role="data" />
+   <file baseinstalldir="/" md5sum="5eefad6da459f3239cadb257bc21e88c" name="web/basic/images/bg_button_a.gif" role="data" />
+   <file baseinstalldir="/" md5sum="3f312828a1998dff76fab663b6a92f74" name="web/basic/images/bg_contents.gif" role="data" />
+   <file baseinstalldir="/" md5sum="44a8b2fe5841ba91660d58413bcf1f32" name="web/basic/images/bg_footer.gif" role="data" />
+   <file baseinstalldir="/" md5sum="91285acc7beec88c5aede8bccf135460" name="web/basic/images/bg_globalnav_hover.gif" role="data" />
+   <file baseinstalldir="/" md5sum="b09bce5a5c70a01ec429f2dc69065f7f" name="web/basic/images/bg_header.gif" role="data" />
+   <file baseinstalldir="/" md5sum="5a134eab6bf42e481f7ae8ecc8b2dc73" name="web/basic/images/bg_localnav_community.gif" role="data" />
+   <file baseinstalldir="/" md5sum="7088fd9c6906207e366cfa327756b794" name="web/basic/images/bg_localnav_community_hover.gif" role="data" />
+   <file baseinstalldir="/" md5sum="6ee4730abd58f4c8386efb798b57ed2c" name="web/basic/images/bg_localnav_default.gif" role="data" />
+   <file baseinstalldir="/" md5sum="00287e9ece4038c13be3497d745209b1" name="web/basic/images/bg_localnav_default_hover.gif" role="data" />
+   <file baseinstalldir="/" md5sum="904c192732299411291d490e35e58db7" name="web/basic/images/bg_localnav_friend.gif" role="data" />
+   <file baseinstalldir="/" md5sum="9356225ec7d00a2b8a09790482804bca" name="web/basic/images/bg_localnav_friend_hover.gif" role="data" />
+   <file baseinstalldir="/" md5sum="562e99c7d47171ac7f66761c126a2a1b" name="web/basic/images/bg_parts_heading_175.gif" role="data" />
+   <file baseinstalldir="/" md5sum="5f84c157b04e59c23c85393aac6f481e" name="web/basic/images/bg_parts_heading_270.gif" role="data" />
+   <file baseinstalldir="/" md5sum="e1e0d15d78c0805ab964f17bc0b1790c" name="web/basic/images/bg_parts_heading_440.gif" role="data" />
+   <file baseinstalldir="/" md5sum="7c4743c946d5c1ed299797826a836661" name="web/basic/images/bg_parts_heading_540.gif" role="data" />
+   <file baseinstalldir="/" md5sum="702ffed28dd55b51e9a2ce9c4a84dd57" name="web/basic/images/bg_parts_heading_650.gif" role="data" />
+   <file baseinstalldir="/" md5sum="a17051d19a539dddf8c3c63ed9fb375b" name="web/basic/images/bg_parts_heading_720.gif" role="data" />
+   <file baseinstalldir="/" md5sum="26546f759370c8e9fe8ccc919345f206" name="web/basic/images/bg_parts_photo_box.gif" role="data" />
+   <file baseinstalldir="/" md5sum="0c275a776f5c2c7bfadf3304982d8ddc" name="web/basic/images/icon_1.gif" role="data" />
+   <file baseinstalldir="/" md5sum="bfbc70a55b4452943c376842e9cb0a35" name="web/basic/images/icon_arrow_1.gif" role="data" />
+   <file baseinstalldir="/" md5sum="0d4d24af678e2a46d97fad6d4912e0ab" name="web/basic/images/icon_arrow_2.gif" role="data" />
+   <file baseinstalldir="/" md5sum="8fb6dfeea0b7c3e731515ace58aa4103" name="web/basic/images/icon_information.gif" role="data" />
+   <file baseinstalldir="/" md5sum="d83b5e3bb500ed36a4c1e69bc8a5a408" name="web/basic/images/skin_header_logo.jpg" role="data" />
    <file baseinstalldir="/" md5sum="67433c2d6eff54d7795d132c4678f834" name="web/cerulean/css/bootstrap.css" role="data" />
-   <file baseinstalldir="/" md5sum="5615a3dd238fd18729a3bb7c126704d5" name="web/cerulean/css/main.css" role="data" />
+   <file baseinstalldir="/" md5sum="fd0d96ecad101cb1e28d58965c18b4b4" name="web/cerulean/css/main.css" role="data" />
    <file baseinstalldir="/" md5sum="23ec1042080aef8623ce446f8f422d01" name="web/cerulean/images/articleList_marker.gif" role="data" />
    <file baseinstalldir="/" md5sum="fe3b5933143e2ebd9db2e51e14c501ad" name="web/cerulean/images/bg_button.gif" role="data" />
    <file baseinstalldir="/" md5sum="5eefad6da459f3239cadb257bc21e88c" name="web/cerulean/images/bg_button_a.gif" role="data" />
@@ -93,7 +119,7 @@ alpha release.
    <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="web/cerulean/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="web/cerulean/js/bootstrap-dropdown.js" role="data" />
    <file baseinstalldir="/" md5sum="86dc09017cf2ff9b00db77498f2bcc4b" name="web/superhero/css/bootstrap.css" role="data" />
-   <file baseinstalldir="/" md5sum="aa305fd7a750b562a866e2c7d8342766" name="web/superhero/css/main.css" role="data" />
+   <file baseinstalldir="/" md5sum="95898f557d5072901ae546800ff72fbe" name="web/superhero/css/main.css" role="data" />
    <file baseinstalldir="/" md5sum="23ec1042080aef8623ce446f8f422d01" name="web/superhero/images/articleList_marker.gif" role="data" />
    <file baseinstalldir="/" md5sum="fe3b5933143e2ebd9db2e51e14c501ad" name="web/superhero/images/bg_button.gif" role="data" />
    <file baseinstalldir="/" md5sum="5eefad6da459f3239cadb257bc21e88c" name="web/superhero/images/bg_button_a.gif" role="data" />
@@ -123,7 +149,7 @@ alpha release.
    <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="web/superhero/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="web/superhero/js/bootstrap-dropdown.js" role="data" />
    <file baseinstalldir="/" md5sum="82bad69c171bdc4b863b2c7b96b942c3" name="web/united/css/bootstrap.css" role="data" />
-   <file baseinstalldir="/" md5sum="f26b2730ad78d523d101003ba1920631" name="web/united/css/main.css" role="data" />
+   <file baseinstalldir="/" md5sum="709ec1640b0df9e61bef2b0300b3b755" name="web/united/css/main.css" role="data" />
    <file baseinstalldir="/" md5sum="23ec1042080aef8623ce446f8f422d01" name="web/united/images/articleList_marker.gif" role="data" />
    <file baseinstalldir="/" md5sum="fe3b5933143e2ebd9db2e51e14c501ad" name="web/united/images/bg_button.gif" role="data" />
    <file baseinstalldir="/" md5sum="5eefad6da459f3239cadb257bc21e88c" name="web/united/images/bg_button_a.gif" role="data" />
@@ -153,7 +179,7 @@ alpha release.
    <file baseinstalldir="/" md5sum="531d4b607365ac65b09a181216f0664d" name="web/united/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="20b2ec1e5ef4fc93c613f613bffb9758" name="web/united/js/bootstrap-dropdown.js" role="data" />
    <file baseinstalldir="/" md5sum="4fe408ce7dc9ee70a6461a747a5019bb" name="dependencies.yml" role="data" />
-   <file baseinstalldir="/" md5sum="8853494632cbb9598486176456d0de3c" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="34782ff3352ece6620d870bcdbad6a82" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -186,6 +212,21 @@ alpha release.
    <license>Apache</license>
    <notes>
 alpha release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.1</release>
+    <api>0.9.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-12-12</date>
+   <license>Apache</license>
+   <notes>
+標準スキンへの対応
    </notes>
   </release>
  </changelog>
