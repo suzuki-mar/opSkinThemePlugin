@@ -9,6 +9,7 @@ opSkinThemePlugin
 ![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/setting.png)
 ### サンプルテーマ
 ![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/united.png) ![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/cerulean.png)
+![SS](https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/basic.png)
 
 ## インストール方法
 1. 以下のコマンドを実行して、プラグインをインストールしてください。
