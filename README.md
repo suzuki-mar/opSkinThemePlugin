@@ -32,6 +32,7 @@ opSkinThemePlugin
 ### 0.9.1 alpha
 * OpenPNEの標準テーマを作成した
 * 今までのOpenPNEのHTMLとBootstrapに対応したHTMLを共存できるようにした
+
 ### 0.9 alpha
 * テーマを選択して、スキンを変更することができるようにした
 * 簡易テーマプレビュー機能の追加
