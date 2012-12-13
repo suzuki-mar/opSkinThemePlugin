@@ -27,18 +27,18 @@
   <active>yes</active>
  </lead>
  <date>2012-12-13</date>
- <time>14:38:02</time>
+ <time>14:48:15</time>
  <version>
-  <release>0.9.4</release>
-  <api>0.9.4</api>
+  <release>0.9.5</release>
+  <api>0.9.5</api>
  </version>
  <stability>
-  <release>alpha</release>
-  <api>alpha</api>
+  <release>beta</release>
+  <api>beta</api>
  </stability>
  <license>Apache</license>
  <notes>
-プレビューのアクセス方法の修正
+NONE
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -262,6 +262,21 @@ NONE
    <license>Apache</license>
    <notes>
 プレビューのアクセス方法の修正
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.5</release>
+    <api>0.9.5</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-12-13</date>
+   <license>Apache</license>
+   <notes>
+NONE
    </notes>
   </release>
  </changelog>
