@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Opskinthemeplugin : OpenPNE3のスキン管理を簡単にするプラグイン" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Opskinthemeplugin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/suzuki-mar/opSkinThemePlugin">View on GitHub</a>
+
+          <h1 id="project_title">Opskinthemeplugin</h1>
+          <h2 id="project_tagline">OpenPNE3のスキン管理を簡単にするプラグイン</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/suzuki-mar/opSkinThemePlugin/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/suzuki-mar/opSkinThemePlugin/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>opSkinThemePlugin</h1>
+
+<h2>機能概要</h2>
+
+<p>テーマを変更する事によって、簡単にスキンを変更する機能を追加します。</p>
+
+<h2>スクリーンショット</h2>
+
+<h3>設定フォーム</h3>
+
+<p><img src="https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/setting.png" alt="SS"></p>
+
+<h3>サンプルテーマ</h3>
+
+<p><img src="https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/basic.png" alt="SS"><img src="https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/united.png" alt="SS"><img src="https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/cerulean.png" alt="SS"><img src="https://raw.github.com/suzuki-mar/opSkinThemePlugin/master/doc/img/superhero.png" alt="SS"></p>
+
+<h2>インストール方法</h2>
+
+<ol>
+<li>以下のコマンドを実行して、プラグインをインストールしてください。
+
+<ul>
+<li>./symfony opPlugin:install opSkinThemePlugin -r 0.9.1</li>
+</ul>
+</li>
+<li>以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
+
+<ul>
+<li>./symfony plugin:publish-assets</li>
+</ul>
+</li>
+</ol><h2>プラグインの使用方法</h2>
+
+<h3>スキンテーマを有効にする</h3>
+
+<p>管理画面にログイン後、スキンプラグイン設定画面にアクセスします。(プラグイン設定 -&gt; スキンプラグイン設定)<br>
+  スキンプラグイン設定画面で、opSkinThemePluginを有効にします。</p>
+
+<h3>使用するテーマを選択する</h3>
+
+<p>スキンテーマを有効にした後に、スキンプラグイン設定画面からopSkinThemePluginの設定画面にアクセスします。<br>
+  opSkinThemePluginの設定画面から、使用するテーマを選択してください。<br><a href="https://github.com/suzuki-mar/opSkinThemePlugin/blob/master/doc/how_to_make_theme.md">テーマの作成方法について</a></p>
+
+<h2>更新履歴</h2>
+
+<h3>0.9.1 alpha</h3>
+
+<ul>
+<li>OpenPNEの標準テーマを作成した</li>
+<li>今までのOpenPNEのHTMLとBootstrapに対応したHTMLを共存できるようにした</li>
+</ul><h3>0.9 alpha</h3>
+
+<ul>
+<li>テーマを選択して、スキンを変更することができるようにした</li>
+<li>簡易テーマプレビュー機能の追加</li>
+<li>サンプルテーマの作成 (cerulean, superhero, united)</li>
+</ul><h2>要望・フィードバック</h2>
+
+<p>要望・フィードバックは #opSkinThemePlugin のハッシュタグをつけてつぶやいてください。<br>
+  GitHubのアカウントを持っている人は <a href="https://github.com/suzuki-mar/opSkinThemePlugin/issues">issues</a>にチケットを作成してください。</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Opskinthemeplugin maintained by <a href="https://github.com/suzuki-mar">suzuki-mar</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
