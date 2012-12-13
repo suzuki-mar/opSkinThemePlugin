@@ -124,8 +124,8 @@ class opThemeActivationForm extends sfForm
   private function createRowTag($widget, $input, opTheme $theme)
   {
     //@todo 国際対応する
-    $linkUrl = '/pc_frontend_dev.php/skinpreview/index/theme_name/'.$theme->getThemeDirName();
-    $linkTag = '<a href="'.$linkUrl.'">プレビュー</a>';
+    $linkUrl = '/pc_frontend.php/skinpreview/index/theme_name/'.$theme->getThemeDirName();
+    $linkTag = '<a href="'.$linkUrl.'" target="_blank">プレビュー</a>';
 
     $tagIds = array(
         'author' => 'author_'.$theme->getThemeName(),
