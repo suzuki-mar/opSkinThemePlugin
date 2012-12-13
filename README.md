@@ -30,6 +30,9 @@ opSkinThemePlugin
 
 
 ## 更新履歴
+### 0.9.4 alpha
+* プレビューのアクセス方法の修正
+
 ### 0.9.3 alpha
 * GitHub Pagesで使用するファイルを削除した
 
