@@ -30,6 +30,9 @@ opSkinThemePlugin
 
 
 ## 更新履歴
+### 0.9.3 alpha
+* GitHub Pagesで使用するファイルを削除した
+
 ### 0.9.2 alpha
 * ドキュメントのリンクをGitHub Pagesのリポジトリで管理するようにした
 
