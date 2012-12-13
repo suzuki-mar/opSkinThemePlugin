@@ -13,7 +13,7 @@ opSkinThemePlugin
 
 ## インストール方法
 1. 以下のコマンドを実行して、プラグインをインストールしてください。
- * ./symfony opPlugin:install opSkinThemePlugin -r 0.9.1
+ * ./symfony opPlugin:install opSkinThemePlugin -r 0.9.3
 2. 以下のコマンドを実行し、opSkinThemePluginのwebディレクトリ以下のファイルを公開ディレクトリにコピーしてください
  * ./symfony plugin:publish-assets
 
@@ -26,7 +26,7 @@ opSkinThemePlugin
 ### 使用するテーマを選択する
 スキンテーマを有効にした後に、スキンプラグイン設定画面からopSkinThemePluginの設定画面にアクセスします。  
   opSkinThemePluginの設定画面から、使用するテーマを選択してください。       
-  [テーマの作成方法について](http://suzuki-mar.github.com/opSkinThemePlugin/doc/how_to_make_theme.md)
+  [テーマの作成方法について](https://github.com/suzuki-mar/opSkinThemePlugin/wiki/%E3%83%86%E3%83%BC%E3%83%9E%E3%81%AE%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95)
 
 
 ## 更新履歴
