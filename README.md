@@ -30,6 +30,9 @@ opSkinThemePlugin
 
 
 ## 更新履歴
+### 0.9.2 alpha
+* ドキュメントのリンクをGitHub Pagesのリポジトリで管理するようにした
+
 ### 0.9.1 alpha
 * OpenPNEの標準テーマを作成した
 * 今までのOpenPNEのHTMLとBootstrapに対応したHTMLを共存できるようにした
