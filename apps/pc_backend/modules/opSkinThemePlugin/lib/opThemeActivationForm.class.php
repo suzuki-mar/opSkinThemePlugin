@@ -68,7 +68,7 @@ class opThemeActivationForm extends sfForm
     return $choices;
   }
 
-  private function findDefaultThemeName()
+  public function findDefaultThemeName()
   {
     $themeInfo = new opThemeConfig();
 
@@ -105,12 +105,14 @@ class opThemeActivationForm extends sfForm
     }
 
     $themes = $this->getOption('themes');
-    $prefix = $widget->generateId(sprintf($this->widgetSchema->getNameFormat(), self::THEME_FILED_KEY)).'_';
 
     $rows = array();
     foreach ($inputs as $id => $input)
     {
-      $name = substr($id, strlen($prefix));
+      $match = array();
+      preg_match('/(.*_theme_)(.*)$/', $id, $match);      
+      $name = $match[2];
+
       $theme = $themes[$name];
 
       $rows[] = $this->createRowTag($widget, $input, $theme);

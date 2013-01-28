@@ -24,15 +24,7 @@
 <p><?php echo __('スキンプテーマはどれか一つのみが「有効」になっている必要があります。') ?></p>
 <?php echo $form->renderFormTag(url_for('opSkinThemePlugin/index')); ?>
 <table>
-<tr>
-<th><?php echo __('選択') ?></th>
-<th><?php echo __('テーマ名') ?></th>
-<th><?php echo __('制作者') ?></th>
-<th><?php echo __('バージョン') ?></th>
-<th><?php echo __('テーマの説明') ?></th>
-<th><?php echo __('プレビュー') ?></th>
-</tr>
-<?php echo $form['theme']->render() ?>
+<?php include_partial('themeSelectRows', array('form' => $form)); ?>
 <tr>
 <td colspan="7">
 <?php echo $form->renderHiddenFields() ?>
